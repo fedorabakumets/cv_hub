@@ -104,44 +104,44 @@ YAML → Generator Script → PDF / DOCX / TXT
 
 ---
 
-## Home page layout (как тасовать блоки)
+## Home page layout (how to reorder blocks)
 
-Главная страница (EN и RU версии) собирается через общий компонент `HomePage.astro`.
+The main page (EN and RU versions) is assembled via the shared `HomePage.astro` component.
 
-- `src/pages/index.astro` и `src/pages/ru.astro`:
-  - читают данные из `cv/en.yaml` / `cv/ru.yaml`;
-  - подготавливают ссылки на скачивание резюме;
-  - вызывают `<HomePage lang=... data=... pdfUrl=... />`.
-- Вся разметка и порядок блоков живут в `src/components/HomePage.astro`.
+- `src/pages/index.astro` and `src/pages/ru.astro`:
+  - read data from `cv/en.yaml` / `cv/ru.yaml`;
+  - prepare resume download links;
+  - call `<HomePage lang=... data=... pdfUrl=... />`.
+- All markup and block order lives in `src/components/HomePage.astro`.
 
-### Структура `HomePage.astro`
+### `HomePage.astro` structure
 
-Внутри используется двухколоночный лейаут:
+Uses a two-column layout internally:
 
-- левая колонка — `aside.sidebar`
-- правая колонка — `main.main-content`
+- left column — `aside.sidebar`
+- right column — `main.main-content`
 
-Каждый крупный блок — отдельный `<article>` или `<section>` с комментарием.
+Each major block is a separate `<article>` or `<section>` with a comment.
 
-**Левая колонка (`sidebar`):**
+**Left column (`sidebar`):**
 
-- блок **Download resume** — кнопки PDF / DOCX / TXT
-- блок **Skills** — навыки по группам
+- **Download resume** block — PDF / DOCX / TXT buttons
+- **Skills** block — skills grouped by category
 
-**Правая колонка (`main-content`):**
+**Right column (`main-content`):**
 
-- блок **Hero** — имя, тайтл, summary, контакты
-- блок **Achievements** — достижения (если есть в YAML)
-- блок **Experience** — таймлайн опыта
+- **Hero** block — name, title, summary, contacts
+- **Achievements** block — achievements (if present in YAML)
+- **Experience** block — experience timeline
 
-Чтобы изменить порядок блоков, достаточно:
+To change the block order:
 
-1. Открыть `src/components/HomePage.astro`.
-2. Найти нужный закомментированный блок (Download, Skills, Hero, Achievements, Experience).
-3. Переместить соответствующий `<article>` / `<section>` выше или ниже внутри `aside` или `main`.
-4. Чтобы скрыть блок — удалить его целиком (или закомментировать).
+1. Open `src/components/HomePage.astro`.
+2. Find the relevant commented block (Download, Skills, Hero, Achievements, Experience).
+3. Move the corresponding `<article>` / `<section>` up or down inside `aside` or `main`.
+4. To hide a block — delete it entirely (or comment it out).
 
-Логика языка (`lang`) и текстов (`t.*`) находится внутри `HomePage.astro`, поэтому EN/RU страницы не дублируют разметку, а только подают данные.
+Language logic (`lang`) and UI strings (`t.*`) live inside `HomePage.astro`, so EN/RU pages don't duplicate markup — they only pass data in.
 
 ---
 
