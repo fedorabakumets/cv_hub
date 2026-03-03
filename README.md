@@ -4,11 +4,24 @@
 ![License](https://img.shields.io/badge/license-MIT-blue)
 ![Astro](https://img.shields.io/badge/built%20with-Astro-ff5d01)
 
-**Resume as Code.** A static, data-driven personal CV site built with Astro and powered by a single YAML source of truth.
+**Resume as Code. Reproducible. Versioned. Deployable.**
 
-Instead of maintaining separate PDF, DOC, web, and LinkedIn versions — one YAML file generates everything.
+CV Hub turns your resume into infrastructure.
 
-🌐 **[keegooroomie.github.io/cv_hub](https://keegooroomie.github.io/cv_hub/)**
+One YAML file becomes:
+
+- A live personal website
+- Downloadable DOCX and TXT files
+- A structured, version-controlled professional profile
+- A reproducible build artifact
+
+No duplicated resumes. No platform lock-in. No visual builders.
+
+Just data → build → deploy.
+
+Treat your career like a system.
+
+🌐 **Live demo:** https://keegooroomie.github.io/cv_hub/
 
 ---
 
@@ -35,7 +48,28 @@ CV Hub works for anyone who wants a professional website with full personal cont
 
 ---
 
+## Why this exists
+
+Most people maintain:
+- A PDF resume
+- A LinkedIn profile
+- A portfolio site
+- A Notion page
+- A DOCX file somewhere on their desktop
+
+They all drift out of sync.
+
+CV Hub eliminates duplication and centralizes everything into one structured source of truth.
+
+Edit once. Regenerate everything. Commit changes. Deploy.
+
+This is especially powerful for engineers, DevOps, and technical specialists who prefer automation over manual editing.
+
+---
+
 ## Quick start
+
+From zero to live site in under 5 minutes.
 
 ### 1. Fork the repository
 
@@ -180,6 +214,8 @@ Step-by-step instructions and a prompt that takes your resume and returns ready 
 ---
 
 ## Documentation
+
+Want to understand or extend the architecture? Start here:
 
 ```
 docs/
