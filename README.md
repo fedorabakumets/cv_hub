@@ -1,4 +1,4 @@
-# CV Hub
+<file name=0 path=/Users/xandergusarov/Documents/GitHub/cv_hub/README.md># CV Hub
 
 **Resume as Code.** A static, data-driven personal CV site built with Astro and powered by a single YAML source of truth.
 
@@ -211,6 +211,14 @@ docs/
   github-labels.md       ← Repository labels setup
 ```
 
+### Direct links
+
+- 📘 [INFO.md](docs/INFO.md) — Project overview and data flow
+- 🏗 [ENGINEERING.md](docs/ENGINEERING.md) — Architectural decisions and trade-offs
+- 🤖 [llm-resume-guide.md](docs/llm-resume-guide.md) — How to generate YAML from an existing resume
+- 🚀 [release-guide.md](docs/release-guide.md) — Release and versioning guide
+- 🏷 [github-labels.md](docs/github-labels.md) — Suggested repository labels
+
 **`INFO.md`** — the starting point for understanding the project. Explains what CV Hub is, what problem it solves, and how the data flow works (`YAML → Astro → HTML`). Useful to read before forking — and before feeding the project to an LLM for help with customization.
 
 **`ENGINEERING.md`** — an architectural journal. Explains why Astro over React or Angular, why YAML, what trade-offs were made deliberately, and where the project is heading.
@@ -269,4 +277,4 @@ docs/
 ## License
 
 Source code: MIT  
-Content (resume data): © Author
+Content (resume data): © Author</file>
