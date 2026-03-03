@@ -1,16 +1,25 @@
-<!--
-  README.md
-  CV Hub
-
-  Created by Alexander Gusarov on 03.03.2026.
-  @spartan121
--->
-
 # CV Hub
 
 **Resume as Code.** A static, data-driven personal CV site built with Astro and powered by a single YAML source of truth.
 
 Instead of maintaining separate PDF, DOC, web, and LinkedIn versions — one YAML file generates everything.
+
+---
+
+## Summary
+
+- [Who is this for](#who-is-this-for)
+- [What you get](#what-you-get)
+- [Quick start](#quick-start)
+- [How to edit your data](#how-to-edit-your-data)
+- [How to customize the look](#how-to-customize-the-look)
+- [How to deploy to GitHub Pages](#how-to-deploy-to-github-pages)
+- [Generate YAML from an existing resume](#generate-yaml-from-an-existing-resume)
+- [Documentation](#documentation)
+- [Project structure](#project-structure)
+- [Tech stack](#tech-stack)
+- [Roadmap](#roadmap)
+- [License](#license)
 
 ---
 
@@ -137,7 +146,7 @@ After editing, save the files — the page will reload automatically in `npm run
 All styles live in one file:
 
 ```
-public/styles/global.css
+src/styles/global.css
 ```
 
 The file is token-based — to change the color scheme of the entire site, just edit the `:root` block at the top:
@@ -224,7 +233,6 @@ src/
   components/
     Layout.astro
     Header.astro
-public/
   styles/
     global.css         # All site styles
 docs/
