@@ -382,7 +382,7 @@ projects:
         type: store
     media:
       - type: image
-        src: /media/projects/helens-quiz/cover.jpg
+        src: /media/projects/helens-quiz/cover.png
         alt: "Helens Quiz gameplay screenshot"
         featured: true
 
