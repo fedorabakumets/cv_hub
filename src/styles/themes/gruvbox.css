@@ -1,0 +1,26 @@
+/* Gruvbox — retro warm */
+:root {
+  --bg: #1d2021;
+  --bg-glow-1: rgba(215 153 33 / 0.18);
+  --bg-glow-2: rgba(184 187 38 / 0.10);
+  --text: rgba(235, 219, 178, 0.95);
+  --text-strong: rgba(251, 241, 199, 0.98);
+  --muted: rgba(168, 153, 132, 0.85);
+  --border: rgba(235, 219, 178, 0.10);
+  --border-2: rgba(235, 219, 178, 0.20);
+  --accent: #d79921;
+  --accent-2: #98971a;
+  --accent-rgb: 215 153 33;
+  --accent-2-rgb: 152 151 26;
+  --brand-grad: linear-gradient(90deg, var(--accent), var(--accent-2));
+  --card-bg: linear-gradient(180deg, rgba(215,153,33,0.07), rgba(255,255,255,0.02));
+  --shadow: 0 16px 44px rgba(0,0,0,0.55);
+  --shadow-soft: 0 8px 24px rgba(0,0,0,0.38);
+  --r-lg: 6px;
+  --r-pill: 999px;
+  --header-bg: rgba(29, 32, 33, 0.90);
+  --container: 980px;
+  --ease: cubic-bezier(.2,.8,.2,1);
+  --t: 180ms var(--ease);
+  --ring: 0 0 0 3px rgba(var(--accent-rgb) / 0.28);
+}

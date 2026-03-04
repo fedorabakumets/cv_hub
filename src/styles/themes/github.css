@@ -1,0 +1,26 @@
+/* GitHub Dark — classic github */
+:root {
+  --bg: #0d1117;
+  --bg-glow-1: rgba(63 185 80 / 0.06);
+  --bg-glow-2: rgba(35 134 54 / 0.04);
+  --text: rgba(230, 237, 243, 0.95);
+  --text-strong: rgba(230, 237, 243, 0.98);
+  --muted: rgba(125, 133, 144, 0.95);
+  --border: rgba(48, 54, 61, 1.0);
+  --border-2: rgba(68, 76, 86, 1.0);
+  --accent: #3fb950;
+  --accent-2: #238636;
+  --accent-rgb: 63 185 80;
+  --accent-2-rgb: 35 134 54;
+  --brand-grad: linear-gradient(90deg, var(--accent), var(--accent-2));
+  --card-bg: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  --shadow: 0 8px 24px rgba(0,0,0,0.40);
+  --shadow-soft: 0 4px 12px rgba(0,0,0,0.28);
+  --r-lg: 8px;
+  --r-pill: 999px;
+  --header-bg: rgba(13, 17, 23, 0.95);
+  --container: 980px;
+  --ease: cubic-bezier(.2,.8,.2,1);
+  --t: 180ms var(--ease);
+  --ring: 0 0 0 3px rgba(var(--accent-rgb) / 0.35);
+}

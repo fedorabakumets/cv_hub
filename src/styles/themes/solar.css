@@ -1,0 +1,26 @@
+/* Solarized Dark — warm olive */
+:root {
+  --bg: #002b36;
+  --bg-glow-1: rgba(42 161 152 / 0.18);
+  --bg-glow-2: rgba(38 139 210 / 0.10);
+  --text: rgba(253, 246, 227, 0.94);
+  --text-strong: rgba(253, 246, 227, 0.98);
+  --muted: rgba(147, 161, 161, 0.82);
+  --border: rgba(255, 255, 255, 0.09);
+  --border-2: rgba(255, 255, 255, 0.16);
+  --accent: #2aa198;
+  --accent-2: #268bd2;
+  --accent-rgb: 42 161 152;
+  --accent-2-rgb: 38 139 210;
+  --brand-grad: linear-gradient(90deg, var(--accent), var(--accent-2));
+  --card-bg: linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.02));
+  --shadow: 0 16px 44px rgba(0,0,0,0.55);
+  --shadow-soft: 0 8px 24px rgba(0,0,0,0.38);
+  --r-lg: 16px;
+  --r-pill: 999px;
+  --header-bg: rgba(0, 43, 54, 0.85);
+  --container: 980px;
+  --ease: cubic-bezier(.2,.8,.2,1);
+  --t: 180ms var(--ease);
+  --ring: 0 0 0 3px rgba(var(--accent-rgb) / 0.25);
+}

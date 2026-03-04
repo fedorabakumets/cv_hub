@@ -1,0 +1,26 @@
+/* VSCode Dark Modern */
+:root {
+  --bg: #1f1f1f;
+  --bg-glow-1: rgba(0 122 204 / 0.10);
+  --bg-glow-2: rgba(0 122 204 / 0.05);
+  --text: rgba(212, 212, 212, 0.95);
+  --text-strong: rgba(220, 220, 220, 0.98);
+  --muted: rgba(140, 140, 140, 0.90);
+  --border: rgba(255, 255, 255, 0.08);
+  --border-2: rgba(255, 255, 255, 0.14);
+  --accent: #007acc;
+  --accent-2: #4fc1ff;
+  --accent-rgb: 0 122 204;
+  --accent-2-rgb: 79 193 255;
+  --brand-grad: linear-gradient(90deg, var(--accent), var(--accent-2));
+  --card-bg: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+  --shadow: 0 8px 24px rgba(0,0,0,0.50);
+  --shadow-soft: 0 4px 12px rgba(0,0,0,0.34);
+  --r-lg: 4px;
+  --r-pill: 999px;
+  --header-bg: rgba(31, 31, 31, 0.96);
+  --container: 980px;
+  --ease: cubic-bezier(.2,.8,.2,1);
+  --t: 180ms var(--ease);
+  --ring: 0 0 0 3px rgba(var(--accent-rgb) / 0.35);
+}
