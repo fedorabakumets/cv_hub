@@ -207,7 +207,7 @@ projects:
 
 - `order` — numeric sorting priority (lower value = shown earlier; missing values go last)
 - All fields are optional by schema design — missing fields are not rendered
-- `theme` — predefined CSS token (`blue`, `purple`, `emerald`, `red`, etc.)
+- `theme` — predefined CSS token (`blue`, `cyan`, `emerald`, `magenta`, `auto`)
 - `accent` — HEX color override, takes precedence over `theme`
 - `metrics.source` — optional proof link, not displayed visually
 - `links.type` — semantic only (`repo`, `demo`, `store`, `article`); affects icon if implemented
