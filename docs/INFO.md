@@ -1,404 +1,405 @@
-<!--
-  INFO.md
-  CV Hub
+# CV Hub
 
-  Created by Alexander Gusarov on 03.03.2026.
-  @spartan121
--->
+![Deploy](https://github.com/KeeGooRoomiE/cv_hub/actions/workflows/deploy.yml/badge.svg)
+![License](https://img.shields.io/badge/license-MIT-blue)
+![Astro](https://img.shields.io/badge/built%20with-Astro-ff5d01)
+[![Last Commit](https://img.shields.io/github/last-commit/KeeGooRoomiE/cv_hub?color=blue)](https://github.com/KeeGooRoomiE/cv_hub/commits/main)
+[![Stars](https://img.shields.io/github/stars/KeeGooRoomiE/cv_hub?style=social)](https://github.com/KeeGooRoomiE/cv_hub/stargazers)
+[![Visitors](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FKeeGooRoomiE%2Fcv_hub&count_bg=%2379C83D&title_bg=%23555555&title=visitors&edge_flat=false)](https://hits.seeyoufarm.com)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/KeeGooRoomiE/cv_hub/blob/main/CONTRIBUTING.md)
 
-# CV Hub — Project Info
+[![Lighthouse Performance](https://img.shields.io/badge/Lighthouse-Performance%20100-00C853?logo=lighthouse&logoColor=white)](https://keegooroomie.github.io/cv_hub/)
+[![Lighthouse Accessibility](https://img.shields.io/badge/Lighthouse-Accessibility%20100-00C853?logo=lighthouse&logoColor=white)](https://keegooroomie.github.io/cv_hub/)
+[![Lighthouse Best Practices](https://img.shields.io/badge/Lighthouse-Best%20Practices%2096-00C853?logo=lighthouse&logoColor=white)](https://keegooroomie.github.io/cv_hub/)
+[![Lighthouse SEO](https://img.shields.io/badge/Lighthouse-SEO%20100-00C853?logo=lighthouse&logoColor=white)](https://keegooroomie.github.io/cv_hub/)
 
-## Overview
+**Resume as Code. Reproducible. Versioned. Deployable.**
 
-CV Hub is a static, data-driven personal professional website built with Astro.
+CV Hub turns your resume into infrastructure.
 
-The project replaces traditional resume formats and no-code builders (e.g. Tilda)
-with a version-controlled, extensible and automation-friendly solution.
+One YAML file becomes:
 
-It provides:
-- A main CV page
-- A Showcase page with projects and case studies
-- Multi-language support (RU / EN)
-- Downloadable resume formats (PDF / DOCX / TXT — generated from YAML at build time)
+- A live personal website
+- Downloadable PDF, DOCX and TXT files
+- A structured, version-controlled professional profile
+- A reproducible build artifact
 
-The core idea: **Single Source of Truth via YAML.**
+No duplicated resumes. No platform lock-in. No visual builders.
 
----
+Just data → build → deploy.
 
-## Goals
+Treat your career like a system.
 
-1. Maintain resume content in structured YAML format
-2. Render website pages directly from structured data
-3. Enable automatic generation of downloadable resume files
-4. Keep the architecture minimal (2 pages only)
-5. Make it easy to extend and fork for other developers
+## Preview
 
----
+![CV Hub Preview](docs/repo-assets/preview_main.jpeg)
 
-## Architecture
-
-### Tech Stack
-
-- Astro (static site generator)
-- YAML content collections
-- Token-based CSS with theme support
-- GitHub Pages for deployment
-- GitHub Actions for CI/CD
+🌐 **Live demo:** https://keegooroomii.github.io/cv_hub/
 
 ---
 
-## Project Structure
+## Who is this for
 
-```
-src/
-  content/
-    cv/
-      en.yaml              ← CV data (English)
-      ru.yaml              ← CV data (Russian)
-    showcase/
-      projects.yaml        ← Projects list
-    config.ts              ← Astro content collection schemas
-  pages/
-    index.astro            ← Main CV page (EN)
-    ru.astro               ← Main CV page (RU)
-    showcase/
-      index.astro          ← Projects showcase page (EN)
-      ru.astro             ← Projects showcase page (RU)
-  components/
-    Layout.astro           ← Shared layout: header, AnimatedBackground, <slot>
-    HomePage.astro         ← Main page blocks (reorderable)
-    ProjectCard.astro      ← Project card: normal + archived (collapse) modes
-    AnimatedBackground.astro ← CSS-only animated orb background
-  scripts/
-    resume-export-pdf.mjs  ← PDF generator via Playwright
-    resume-import-json.mjs ← JSON Resume → YAML converter
-    resume-import-linkedin.mjs ← LinkedIn PDF → YAML parser (best-effort)
-    resume.schema.json     ← JSON Resume validation schema
-  styles/
-    global.css             ← All site styles + design tokens (:root)
-    themes/
-      frosted.css          ← Frosted glass dark theme
-      light.css            ← Light theme
-      nordic.css           ← Nord-inspired cold blue theme
-      peachy.css           ← Warm peach light theme
-public/
-  media/
-    projects/              ← Showcase media files
-      project-slug/        ← One folder per project
-  downloads/               ← Generated resume files (after build)
-    json/                  ← JSON Resume exports
-  favicon.ico
-  favicon.svg
-.github/
-  scripts/
-    generate-resume.js     ← DOCX + TXT generator
-  workflows/
-    deploy.yml             ← CI/CD pipeline
-  ISSUE_TEMPLATE/
-  FUNDING.yml
-docs/
-  INFO.md                  ← This file
-  ENGINEERING.md           ← Architecture decisions and philosophy
-  BKG_INFO.md              ← AnimatedBackground component docs
-  llm-resume-guide.md      ← How to generate YAML from resume via LLM
-  examples/
-    example_cv.yaml        ← Full YAML example with all supported fields
-    example_cv.json        ← JSON Resume format example
-  repo-assets/             ← README images and release docs
-```
+CV Hub works for anyone who wants a professional website with full personal control:
+
+- Developers, DevOps engineers, designers, managers, analysts — any specialist
+- Anyone tired of Tilda, Notion, Canva, and other platforms
+- Anyone who wants to version their resume with Git and automate format generation
+
+> Minimum requirement — basic familiarity with the command line and Git. If you can clone a repo and edit text files, that's enough.
 
 ---
 
-## Data Flow
+## What you get
 
-```
-src/content/cv/en.yaml
-src/content/cv/ru.yaml
-        │
-        ├── Astro Content Collection
-        │         │
-        │         └── Page → Component → Static HTML
-        │
-        ├── .github/scripts/generate-resume.js
-        │         │
-        │         ├── public/downloads/resume_en.docx
-        │         ├── public/downloads/resume_ru.docx
-        │         ├── public/downloads/resume_en.txt
-        │         └── public/downloads/resume_ru.txt
-        │
-        └── src/scripts/resume-export-pdf.mjs
-                  │
-                  ├── public/downloads/resume_en.pdf
-                  └── public/downloads/resume_ru.pdf
-```
-
-Build order: `resume:generate` → `resume:pdf` → `astro build`
+- Main page — CV
+- Showcase page — projects and case studies
+- Changelog page — version history of your CV Hub
+- Two language support (RU / EN)
+- Downloadable resume files (PDF / DOCX / TXT) generated automatically from YAML
+- Clean static HTML deployed on GitHub Pages
+- Full control over the visual style through a single CSS file with theme support
+- URL-based theme switching for live previews
 
 ---
 
-## YAML Reference — `cv/en.yaml`
+## Why this exists
 
-Full field reference with examples.
+Most people maintain:
+- A PDF resume
+- A LinkedIn profile
+- A portfolio site
+- A Notion page
+- A DOCX file somewhere on their desktop
 
-```yaml
-name: "Alexander Gusarov"
-title: "Software Engineer | DevOps"
-summary: >
-  Multidisciplinary Software Engineer with 10+ years of experience.
-  Covers the full development cycle: architecture, code, APIs, CI/CD.
+They all drift out of sync.
 
-contacts:
-  - label: Email
-    url: mailto:you@example.com
-  - label: GitHub
-    url: https://github.com/yourhandle
-  - label: Telegram
-    url: https://t.me/yourhandle
-  - label: LinkedIn
-    url: https://linkedin.com/in/yourhandle
+CV Hub eliminates duplication and centralizes everything into one structured source of truth.
 
-achievements:
-  - Project X — 1M+ downloads
-  - Top Rated Plus on Upwork — top 5% of performers
+Edit once. Regenerate everything. Commit changes. Deploy.
 
-skills:
-  - group: "Languages"
-    items: [Go, Python, TypeScript]
-  - group: "DevOps & Infrastructure"
-    items: [Kubernetes, Docker, Terraform, Ansible]
-  - group: "Cloud"
-    items: [AWS (EC2, S3, VPC, IAM)]
-  - group: "Databases"
-    items: [PostgreSQL, Redis, MySQL]
-
-experience:
-  - company: "Company Name"
-    role: "DevOps Engineer"
-    period: "Jan 2024 — present"
-    description:
-      - Administered production Kubernetes clusters
-      - Built CI/CD pipelines with GitHub Actions
-      - Automated provisioning of 100+ servers with Ansible
-    stack: [Kubernetes, Docker, Ansible, GitHub Actions]
-
-education:
-  - institution: "University Name"
-    degree: "Computer Science"
-    period: "2017–2021"
-
-languages:
-  - language: English
-    level: Professional working proficiency
-  - language: Russian
-    level: Native
-```
-
-### Field notes
-
-- All top-level fields are optional — missing fields are simply not rendered
-- `summary` supports multi-line YAML block scalar (`>`)
-- `contacts` — `url` for email must start with `mailto:`
-- `skills` — `group` is the category label; `items` is a flat list
-- `experience.description` — list of strings, rendered as bullets
-- `experience.stack` — rendered as tags below the description
+This is especially powerful for engineers, DevOps, and technical specialists who prefer automation over manual editing.
 
 ---
 
-## YAML Reference — `showcase/projects.yaml`
+## Quick start
 
-```yaml
-projects:
-  - name: "Project Name"
-    slug: "project-name"
-    order: 1
-    featured: true          # ← shows in Featured section (top of showcase)
-    archived: false         # ← collapses into spoiler row (bottom of showcase)
-    role: "DevOps Engineer"
-    year: "2024"
-    description: "Short project summary."
-    theme: "blue"
-    accent: "#3b82f6"       # ← HEX override, takes priority over theme
-    platforms: [Linux, Web]
-    stack: [Go, Docker, Kubernetes]
-    tags: [devops, infrastructure]
-    metrics:
-      - label: "Deploy time"
-        value: "8m → 2m"
-    links:
-      - label: "GitHub"
-        url: https://github.com/yourhandle/project
-        type: repo
-      - label: "Live"
-        url: https://example.com
-        type: demo
-    media:
-      - type: image
-        src: /media/projects/project-name/cover.jpg
-        alt: "Project screenshot"
-        featured: true       # ← which media item to show first
+From zero to live site in under 5 minutes.
+
+### 1. Fork the repository
+
+Click **Fork** in the top right corner of the repository page on GitHub.
+
+After forking you'll have your own copy: `github.com/YOUR_ACCOUNT/cv_hub`
+
+### 2. Clone to your local machine
+
+```bash
+git clone https://github.com/YOUR_ACCOUNT/cv_hub.git
+cd cv_hub
 ```
 
-### Field notes
+### 3. Install dependencies
 
-- `order` — numeric sort priority (lower = shown first; missing = last)
-- `featured: true` — placed in Featured section at top of showcase
-- `archived: true` — card collapses into a single summary row; expands on click. Shows only: name, role, year, platforms in collapsed state
-- If both `featured` and `archived` are true — `featured` wins, card shown normally
-- `theme` — predefined CSS class: `blue`, `purple`, `amber`, `emerald`, `red`, `slate`, `auto`
-- `accent` — HEX color, overrides `theme` entirely
-- `links.type` — semantic only (`repo`, `demo`, `store`, `article`)
-- `media.src` — path relative to `/public`
-- Broken media files are automatically removed from rendering via `onerror`
-
-### Showcase sections
-
-Projects are split into three visual groups by `ProjectCard.astro` and `showcase/index.astro`:
-
-```
-Featured   ← featured: true              full cards, shown first
-           ← no flags                    full cards, shown after featured
-Archive    ← archived: true              collapsed rows, expand on click
+```bash
+npm install
+npx playwright install chromium --with-deps
 ```
 
-Filtering logic in `showcase/index.astro`:
+### 4. Run locally
 
-```js
-const featured = projects.filter(p => p.featured && !p.archived);
-const regular  = projects.filter(p => !p.featured && !p.archived);
-const archived = projects.filter(p => p.archived);
+```bash
+npm run dev
+```
+
+The site will be available at:
+
+```
+http://localhost:4321
+```
+
+Pages:
+- `http://localhost:4321/` — main CV page
+- `http://localhost:4321/showcase` — projects showcase
+- `http://localhost:4321/changelog` — version history
+
+---
+
+## How to edit your data
+
+All data is stored in YAML files inside `src/content/`.
+
+```
+src/content/
+  cv/
+    en.yaml          ← CV in English
+    ru.yaml          ← CV in Russian
+  showcase/
+    projects.yaml    ← projects list
+  changelog/
+    changelog.yaml   ← version history
+```
+
+For full YAML structure reference and field descriptions — see **[`docs/INFO.md`](docs/INFO.md)**.
+
+Example files with all supported fields are available in:
+
+```
+docs/examples/
+  example_cv.yaml   ← full YAML example with comments
+  example_cv.json   ← JSON Resume format example
 ```
 
 ---
 
-## Themes
+## How to fill in your data
 
-All styles use CSS custom properties defined in `:root` in `global.css`.
-To switch themes, import a theme file in `src/components/Layout.astro`:
+There are three ways to get your resume into YAML:
+
+### Option A — Edit YAML directly
+
+Open `src/content/cv/en.yaml` and `ru.yaml` and fill in your data manually.
+See [`docs/INFO.md`](docs/INFO.md) for the full field reference.
+
+### Option B — Import from JSON Resume
+
+If your resume exists in [JSON Resume](https://jsonresume.org) format:
+
+```bash
+# Single language
+npm run resume:import -- docs/cv_en.json en
+npm run resume:import -- docs/cv_ru.json ru
+
+# Both at once
+npm run resume:import:all
+```
+
+### Option C — Generate from any resume via LLM
+
+If you have a PDF, DOCX, or plain text resume — use Claude or ChatGPT with the ready-made prompt to generate YAML automatically.
+
+👉 **[See `docs/llm-resume-guide.md`](docs/llm-resume-guide.md)**
+
+---
+
+## How to customize the look
+
+All styles live in:
+
+```
+src/styles/global.css
+```
+
+The file is token-based — to restyle the entire site, edit only the `:root` block at the top. Every visual property flows from these tokens:
+
+```css
+:root {
+  --bg: #070a10;          /* page background */
+  --text: #e9eef7;        /* primary text */
+  --text-strong: #edf2fc; /* headings and bold text */
+  --muted: #a6b1c2;       /* secondary text */
+  --accent: #3b82f6;      /* accent color */
+  --accent-2: #60a5fa;    /* secondary accent */
+  --card-bg: ...;         /* card surface gradient */
+  --border: ...;          /* border color */
+  --r-lg: 18px;           /* card border radius */
+  --header-bg: ...;       /* header background with opacity */
+}
+```
+
+Change one variable — the whole site updates.
+
+### Themes
+
+Ready-made themes are in:
+
+```
+src/styles/themes/
+```
+
+| File | Description |
+|---|---|
+| `frosted.css` | Dark glass, muted tones |
+| `light.css` | Light background, dark text |
+| `nordic.css` | Nord-inspired, cold blue-grey |
+| `peachy.css` | Warm peach, light background |
+
+To switch the default theme, change the import in `src/components/Layout.astro`:
 
 ```js
 import '../styles/themes/nordic.css';
 ```
 
-Available themes in `src/styles/themes/`:
+Previews for all themes are available in **[`docs/repo-assets`](docs/repo-assets)**.
 
-| File | Description |
-|---|---|
-| `frosted.css` | Dark glass, muted tones |
-| `light.css` | Light background, dark cards |
-| `nordic.css` | Nord-inspired, cold blue-grey |
-| `peachy.css` | Warm peach, light background |
+#### Live theme preview via URL
 
-To create a custom theme — create a new CSS file and override only the `:root` tokens.
-All available tokens are listed with comments at the top of `global.css`.
+Any theme can be previewed live without changing code:
 
-Key tokens that affect the entire site:
-
-```css
-:root {
-  --bg              /* page background */
-  --bg-glow-1       /* radial glow top-left on body */
-  --bg-glow-2       /* radial glow top-right on body */
-  --text            /* primary text */
-  --text-strong     /* headings and bold text */
-  --muted           /* secondary / dimmed text */
-  --border          /* card and element borders */
-  --border-2        /* active / hover borders */
-  --accent          /* primary accent color */
-  --accent-2        /* secondary accent */
-  --accent-rgb      /* accent in RGB for rgba() usage */
-  --accent-2-rgb    /* secondary accent in RGB */
-  --brand-grad      /* header logo gradient */
-  --card-bg         /* card background gradient */
-  --shadow          /* card hover shadow */
-  --shadow-soft     /* card resting shadow */
-  --r-lg            /* card border radius */
-  --r-pill          /* pill / tag border radius */
-  --header-bg       /* header background (with opacity) */
-  --t               /* transition shorthand */
-  --ring            /* focus ring */
-}
 ```
+https://YOUR_ACCOUNT.github.io/cv_hub/?theme=peachy
+```
+
+Available values: `frosted`, `light`, `nordic`, `peachy`
 
 ---
 
-## Animated Background
+## How to deploy to GitHub Pages
 
-`AnimatedBackground.astro` replaces the static radial gradients on `body`.
+### 1. Enable GitHub Pages in repository settings
 
-It renders 4 CSS-animated glowing orbs that drift and pulse independently.
-Colors are pulled from `--accent-rgb` and `--accent-2-rgb` — theme-aware automatically.
-No JavaScript. Respects `prefers-reduced-motion`.
+`Settings → Pages → Source: GitHub Actions`
 
-Included in `Layout.astro` by default.
-See `docs/BKG_INFO.md` for tuning options (size, speed, opacity, blur).
-
----
-
-## Home Page Layout — How to Reorder Blocks
-
-The main page is assembled via `src/components/HomePage.astro`.
-
-### Two-column layout (desktop)
-
-- Left column — `aside.sidebar`: Download buttons, Skills
-- Right column — `main.main-content`: Hero, Achievements, Experience
-
-### Mobile order
-
-On screens under 960px, columns dissolve via `display: contents`
-and blocks stack in this fixed order (controlled by CSS `order`):
-
-```
-1. Download
-2. Hero (name + summary + contacts)
-3. Achievements
-4. Experience
-5. Skills
-```
-
-To adjust mobile order — edit `order` values in `global.css` under `@media (max-width: 959px)`.
-To adjust desktop order — move `<article>` / `<section>` blocks within `HomePage.astro`.
-
----
-
-## CLI Reference
+### 2. Push your changes
 
 ```bash
-npm run dev                  # local dev server → http://localhost:4321
-npm run build                # generate resume files + build site
-npm run resume:generate      # DOCX + TXT from YAML
-npm run resume:pdf           # PDF from YAML via Playwright
-npm run resume:import        # JSON Resume → YAML (single file)
-npm run resume:import:all    # convert docs/cv_en.json and docs/cv_ru.json
-npm run resume:linkedin      # LinkedIn PDF → YAML (best-effort)
+git add .
+git commit -m "update cv data"
+git push
+```
+
+Your site will be live at:
+
+```
+https://YOUR_ACCOUNT.github.io/cv_hub/
+```
+
+The deploy workflow runs automatically on every push to `main`. The `base` URL is resolved dynamically — forks work out of the box without any config changes.
+
+---
+
+## Resume file generation
+
+All resume files are generated automatically during build:
+
+```bash
+npm run build
+```
+
+This runs in order:
+1. `resume:generate` — DOCX + TXT from YAML
+2. `resume:pdf` — PDF via Playwright from YAML
+3. `astro build` — static site
+
+Output after build:
+
+```
+public/downloads/
+  resume_en.pdf
+  resume_ru.pdf
+  resume_en.docx
+  resume_ru.docx
+  resume_en.txt
+  resume_ru.txt
+  json/
+    cv_en.json
+    cv_ru.json
+```
+
+To generate resume files without building the site:
+
+```bash
+npm run resume:generate   # DOCX + TXT
+npm run resume:pdf        # PDF
 ```
 
 ---
 
-## Why This Approach
+## CLI reference
 
-Traditional resume formats create duplication:
-- Website version
-- PDF version
-- DOC version
-- LinkedIn version
-
-CV Hub centralizes everything into one YAML file, reduces duplication,
-enables automation, and keeps you independent from any platform.
+```bash
+npm run dev                  # start local dev server
+npm run build                # generate all resume files + build site
+npm run resume:generate      # generate DOCX + TXT from YAML
+npm run resume:pdf           # generate PDF from YAML via Playwright
+npm run resume:import        # convert JSON Resume → YAML (single file)
+npm run resume:import:all    # convert both cv_en.json and cv_ru.json
+npm run resume:linkedin      # parse LinkedIn PDF export → YAML (best-effort)
+```
 
 ---
 
-## Philosophy
+## Documentation
 
-Treat your resume as infrastructure.
+```
+docs/
+  INFO.md              ← YAML reference, data flow, component structure
+  ENGINEERING.md       ← Engineering decisions and project philosophy
+  llm-resume-guide.md  ← How to generate YAML from a resume using an LLM
+  BKG_INFO.md          ← AnimatedBackground component docs
+  examples/
+    example_cv.yaml    ← Full YAML example with all supported fields
+    example_cv.json    ← JSON Resume format example
+  repo-assets/         ← Theme previews, GitHub label config, release guide
+```
 
-Version-controlled.
-Composable.
-Automatable.
-Portable.
+Links: [INFO.md](docs/INFO.md) · [ENGINEERING.md](docs/ENGINEERING.md) · [llm-resume-guide.md](docs/llm-resume-guide.md) · [BKG_INFO.md](docs/BKG_INFO.md) · [example_cv.yaml](docs/examples/example_cv.yaml) · [example_cv.json](docs/examples/example_cv.json)
 
-This repository is designed to be forked and adapted by any specialist
-who wants full control over their professional presentation.
+---
+
+## Project structure
+
+```
+src/
+  content/
+    cv/
+      en.yaml
+      ru.yaml
+    showcase/
+      projects.yaml
+    changelog/
+      changelog.yaml
+  pages/
+    index.astro              # Main CV page (EN)
+    ru.astro                 # Main CV page (RU)
+    changelog.astro          # Changelog page
+    showcase/
+      index.astro            # Showcase page (EN)
+      ru.astro               # Showcase page (RU)
+  components/
+    Layout.astro             # Shared layout with header + animated background
+    HomePage.astro           # Main page blocks (reorderable)
+    ProjectCard.astro        # Project card: normal + archived collapse modes
+    AnimatedBackground.astro # CSS-only animated orb background
+  scripts/
+    resume-export-pdf.mjs      # PDF generator (Playwright)
+    resume-import-json.mjs     # JSON Resume → YAML converter
+    resume-import-linkedin.mjs # LinkedIn PDF → YAML parser (best-effort)
+  styles/
+    global.css               # All site styles + design tokens
+    themes/                  # Ready-made color themes
+public/
+  themes/                    # Built theme files (auto-copied from src/styles/themes)
+  media/
+    projects/                # Showcase media files, one folder per project
+  downloads/                 # Generated resume files (after build)
+    json/                    # JSON Resume exports
+.github/
+  scripts/
+    generate-resume.js       # DOCX + TXT generator
+  workflows/
+    deploy.yml               # GitHub Actions CI/CD
+docs/
+  INFO.md
+  ENGINEERING.md
+  BKG_INFO.md
+  llm-resume-guide.md
+  examples/
+    example_cv.yaml
+    example_cv.json
+  repo-assets/
+```
+
+---
+
+## Tech stack
+
+- [Astro](https://astro.build) — static site generator
+- YAML — single source of truth
+- [docx](https://docx.js.org) — DOCX generation
+- [Playwright](https://playwright.dev) — PDF generation
+- GitHub Pages — deployment
+- GitHub Actions — CI/CD
 
 ---
 
