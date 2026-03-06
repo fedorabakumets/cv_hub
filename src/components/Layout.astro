@@ -73,16 +73,18 @@ const switchHref =
       <meta name="twitter:image" content={metaImage} />
 
       <script is:inline>
-  const params = new URLSearchParams(window.location.search);
-  const theme = params.get('theme');
-  const allowed = ['frosted', 'light', 'nordic', 'peachy'];
-  if (theme && allowed.includes(theme)) {
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = `${document.documentElement.dataset.base}/themes/${theme}.css`;
-    document.head.appendChild(link);
-  }
-</script>
+        const params = new URLSearchParams(window.location.search);
+        const theme = params.get('theme');
+        const allowed = ['frosted', 'light', 'nordic', 'peachy'];
+        if (theme && allowed.includes(theme)) {
+          const link = document.createElement('link');
+          link.rel = 'stylesheet';
+          link.href = `${document.documentElement.dataset.base}/themes/${theme}.css`;
+          document.addEventListener('DOMContentLoaded', () => {
+            document.head.appendChild(link);
+          });
+        }
+      </script>
   </head>
   <body>
   <AnimatedBackground />
