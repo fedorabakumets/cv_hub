@@ -1,4 +1,3 @@
-// @ts-check
 import { defineConfig } from 'astro/config';
 import { cpSync } from 'fs';
 
@@ -11,7 +10,7 @@ export default defineConfig({
   vite: {
     plugins: [{
       name: 'copy-themes',
-      buildStart() {
+      configResolved() {
         cpSync('src/styles/themes', 'public/themes', { recursive: true });
       }
     }]
