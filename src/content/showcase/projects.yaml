@@ -782,3 +782,24 @@ projects:
       - label: APKPure
         url: https://apkpure.net/cookie-crush-candy-match-3/com.guuby.candy
         type: store
+
+  - slug: s-s-platformer
+    order: 36
+    featured: true
+    name: "S+S"
+    role: Game Developer
+    year: "2024"
+    description: Mario-style web platformer commissioned by Sundukovy Sisters interior design studio as a birthday gift to the founders. Each level reflects a different era of the studio through branded interiors, custom bosses drawn in pokémon style, and a companion character with autonomous movement logic. Built in 3 weeks with PC and mobile support. Played by the whole team at the founders' corporate birthday party.
+    theme: blue
+    platforms: [Web]
+    tags: [gamemaker, pixel-art, platformer, branded, web]
+    stack: [GameMaker Studio]
+    links:
+      - label: Play Game
+        url: https://sundukovy.com/game
+        type: demo
+    media:
+      - type: image
+        src: /media/projects/s-s-platformer/cover.png
+        alt: "S+S platformer screenshot"
+        featured: true
