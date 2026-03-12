@@ -1,12 +1,11 @@
 name: Alexander Gusarov
-title: Software Engineer | DevOps | Product Engineering
+title: Software Engineer — DevOps · Fullstack · GameDev
 
 summary: >
-  Software engineer with 14+ years across DevOps, full-stack and game development.
-  I've managed infrastructure for 750+ servers, contributed to products used by 100M+ people,
-  and built everything from CI/CD pipelines to multiplayer game backends.
+  Software engineer with 14+ years across DevOps, fullstack and game development.
+  Managed infrastructure for 750+ servers, shipped products with 100M+ users,
+  built everything from CI/CD pipelines to multiplayer backends.
   I close the full cycle — architecture, code, deployment — and I actually enjoy all of it.
-  Not a specialist who knows one thing deep. A generalist who gets things done.
 
 contacts:
   - label: Email
@@ -23,9 +22,10 @@ contacts:
     url: https://career.habr.com/xandergusarov
 
 achievements:
-  - Managed infrastructure for 750+ Linux servers with 99.9% uptime
+  - Operated and automated infrastructure for 750+ Linux servers (Selectel VPS and bare metal) with 99.9% uptime
+  - Reduced deploy time from 8 to 2 minutes (−75%) and AWS costs from $550 to $300/month
   - Send Balls — contributed to a mobile game with 100M+ downloads and top App Store rankings
-  - Bhop Jump — multiplayer project generating $160K+ revenue in the first quarter
+  - Bhop Jump — built multiplayer backend generating $160K+ revenue in the first quarter
   - Lana and Ronen — 1M+ downloads mobile title
   - Upwork Top Rated Plus — top 5% of freelancers with 20+ successful projects
 
@@ -43,10 +43,10 @@ skills:
     items: [Kubernetes, Helm, Docker, Terraform, Ansible, GitLab CI, GitHub Actions, Jenkins]
 
   - group: Cloud
-    items: [AWS — EC2, S3, RDS, VPC, IAM, ALB]
+    items: [AWS — EC2, S3, RDS, VPC, IAM, ALB, Yandex Cloud, Selectel]
 
   - group: Observability
-    items: [Prometheus, VictoriaMetrics, Grafana, Loki, CloudWatch]
+    items: [Prometheus, VictoriaMetrics, Grafana, Loki, Alertmanager, CloudWatch]
 
   - group: Databases
     items: [PostgreSQL, ClickHouse, MySQL, MongoDB, Redis, RabbitMQ]
@@ -58,7 +58,7 @@ skills:
     items: [Linux, Web, iOS, Android, macOS]
 
   - group: Languages (spoken)
-    items: [Russian — Native, English — B2]
+    items: [Russian — Native, English — IELTS 7.0 (B2)]
 
 experience:
 
@@ -66,16 +66,22 @@ experience:
     role: DevOps Engineer / Software Engineer
     period: Dec 2024 — Jan 2026
     description:
-      - Administered Kubernetes production clusters — deployments, ConfigMaps, Secrets, network policies
-      - Automated infrastructure for 750+ Linux servers via Ansible + Kubernetes, reducing manual ops by 80%
-      - Built IaC solution with Terraform + Ansible on AWS (EC2, VPC, RDS, IAM, ALB)
-      - Optimized CI/CD pipelines — cut deploy time from 8 to 2 minutes (−75%), Docker images from 500MB to 200MB
-      - Set up monitoring stack — Grafana + Prometheus/VictoriaMetrics, custom dashboards, MTTR reduced by 60%
-      - Identified AWS cost optimizations saving ~$250/month via Cost Explorer analysis
-      - Developed internal SaaS monitoring microservice — Go (Gin) + PostgreSQL + React dashboard
-      - Responded to SSH attacks and security incidents, recovered data via KVM, SLA response 1.5–2 min
-      - Mentored a junior developer
-    stack: [Kubernetes, Helm, Docker, Terraform, Ansible, AWS, GitLab CI, GitHub Actions, Go, React, PostgreSQL, ClickHouse, VictoriaMetrics, Grafana]
+      - Monitored and maintained 750+ Linux servers (Selectel VPS and bare metal)
+        — network interfaces, ports, access management, incident response
+      - Managed Kubernetes clusters on Yandex Cloud and self-hosted
+        (GitLab, Matrix, Keycloak, Vault); wrote and maintained Helm charts
+      - Built Terraform infrastructure for ~20 AWS services ($550 → $300/month);
+        wrote custom modules, provisioned ClickHouse; Ansible for per-instance configuration
+      - Optimized CI/CD across multiple repos (GitHub Actions + GitLab CI);
+        unified pipeline structure reduced deploy time from 8 to 2 minutes
+      - Built observability stack from scratch — VictoriaMetrics probes, Prometheus alerting,
+        custom Grafana dashboards; Alertmanager integrated with Telegram and Matrix
+      - Designed and developed SaaS monitoring service end-to-end (Go + Gin/GORM + React)
+        — ping, domain, SSL checks with configurable intervals (10s–24h); deployed in-cluster on Kubernetes
+      - Responded to SSH brute-force attacks via KVM live access,
+        port blocking, user rotation, and timeout configuration
+      - Grew infrastructure team from 3 to 6 engineers; mentored 3 junior members
+    stack: [Kubernetes, Helm, Docker, Terraform, Ansible, AWS, Yandex Cloud, GitLab CI, GitHub Actions, Go, React, PostgreSQL, ClickHouse, VictoriaMetrics, Grafana]
 
   - company: SOFTINTERMOB
     role: Unity Developer
@@ -150,7 +156,7 @@ experience:
 
 education:
   - institution: Udemy
-    degree: Linux Foundation Computer Science 
+    degree: Linux Foundation Computer Science
     period: "2025"
 
   - institution: Udemy

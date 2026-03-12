@@ -1,12 +1,11 @@
 name: Александр Гусаров
-title: Software Engineer | DevOps | Продуктовая разработка
+title: Software Engineer — DevOps · Fullstack · GameDev
 
 summary: >
-  Инженер с 14+ годами опыта в DevOps, full-stack и геймдеве.
-  Управлял инфраструктурой из 750+ серверов, участвовал в создании продуктов
-  с аудиторией 100M+, строил всё от CI/CD-пайплайнов до бэкендов мультиплеерных игр.
+  Инженер с 14+ годами опыта в DevOps, fullstack и геймдеве.
+  Управлял инфраструктурой из 750+ серверов, участвовал в продуктах с аудиторией 100M+,
+  строил всё — от CI/CD пайплайнов до мультиплеерных бэкендов.
   Закрываю полный цикл — архитектура, код, деплой — и мне это реально нравится.
-  Не узкий специалист с одним стеком. Генералист, который доводит до результата.
 
 contacts:
   - label: Email
@@ -19,154 +18,161 @@ contacts:
     url: https://www.upwork.com/freelancers/~01764e57e0646f2fbf
   - label: LinkedIn
     url: https://www.linkedin.com/in/alexander-gusarov-4a08911a2/
-  - label: Хабр Карьера
+  - label: Habr
     url: https://career.habr.com/xandergusarov
 
 achievements:
-  - Управлял инфраструктурой из 750+ Linux-серверов с uptime 99.9%
-  - Send Balls — участие в разработке мобильной игры с 100M+ скачиваний и топом App Store
-  - Bhop Jump — мультиплеерный проект с выручкой $160K+ за первый квартал
-  - Lana and Ronen — мобильная игра с 1M+ скачиваний
-  - Upwork Top Rated Plus — топ-5% исполнителей, 20+ успешных проектов
+  - Обслуживал и автоматизировал инфраструктуру из 750+ Linux-серверов (Selectel VPS и bare metal) с аптаймом 99.9%
+  - Сократил время деплоя с 8 до 2 минут (−75%) и расходы на AWS с $550 до $300/мес
+  - Send Balls — участвовал в разработке игры с 100M+ скачиваний и топом App Store
+  - Bhop Jump — построил мультиплеерный бэкенд, $160K+ выручки в первом квартале
+  - Lana and Ronen — мобильный тайтл с 1M+ скачиваний
+  - Upwork Top Rated Plus — топ 5% фрилансеров, 20+ успешных проектов
 
 skills:
   - group: Языки программирования
     items: [Go, C#, JavaScript, TypeScript, Dart, Swift, Java, GML]
 
-  - group: Backend & API
+  - group: Backend и API
     items: [Node.js, REST API, WebSockets, микросервисы, EF Core]
 
   - group: Frontend
     items: [React, Angular, HTML, CSS, Tailwind]
 
-  - group: DevOps & Инфраструктура
+  - group: DevOps и инфраструктура
     items: [Kubernetes, Helm, Docker, Terraform, Ansible, GitLab CI, GitHub Actions, Jenkins]
 
-  - group: Облако
-    items: [AWS — EC2, S3, RDS, VPC, IAM, ALB]
+  - group: Облака
+    items: [AWS — EC2, S3, RDS, VPC, IAM, ALB, Yandex Cloud, Selectel]
 
-  - group: Мониторинг
-    items: [Prometheus, VictoriaMetrics, Grafana, Loki, CloudWatch]
+  - group: Observability
+    items: [Prometheus, VictoriaMetrics, Grafana, Loki, Alertmanager, CloudWatch]
 
   - group: Базы данных
     items: [PostgreSQL, ClickHouse, MySQL, MongoDB, Redis, RabbitMQ]
 
   - group: Геймдев
-    items: [Unity, GameMaker, мультиплеер, монетизация, гейм-дизайн]
+    items: [Unity, GameMaker, мультиплеер, монетизация, игровой дизайн]
 
   - group: Платформы
     items: [Linux, Web, iOS, Android, macOS]
 
   - group: Языки
-    items: [Русский — родной, Английский — B2]
+    items: [Русский — родной, Английский — IELTS 7.0 (B2)]
 
 experience:
 
   - company: InfoScale
-    role: DevOps Engineer / Software Engineer
+    role: DevOps-инженер / Software Engineer
     period: Дек 2024 — Янв 2026
     description:
-      - Администрировал Kubernetes production-кластеры — деплойменты, ConfigMaps, Secrets, сетевые политики
-      - Автоматизировал управление 750+ Linux-серверами через Ansible + Kubernetes, сократил ручные операции на 80%
-      - Построил IaC-решение на Terraform + Ansible для AWS (EC2, VPC, RDS, IAM, ALB)
-      - Оптимизировал CI/CD — деплой с 8 до 2 минут (−75%), Docker-образы с 500MB до 200MB
-      - Настроил мониторинг Grafana + Prometheus/VictoriaMetrics, кастомные дашборды, MTTR снижен на 60%
-      - Провёл анализ AWS Cost Explorer, предложил оптимизации на ~$250/месяц
-      - Разработал внутренний SaaS-сервис мониторинга — Go (Gin) + PostgreSQL + React-дашборд
-      - Реагировал на SSH-атаки и инциденты безопасности, восстанавливал данные через KVM, SLA 1.5–2 мин
-      - Менторил младшего разработчика
-    stack: [Kubernetes, Helm, Docker, Terraform, Ansible, AWS, GitLab CI, GitHub Actions, Go, React, PostgreSQL, ClickHouse, VictoriaMetrics, Grafana]
+      - Мониторинг и обслуживание 750+ Linux-серверов (Selectel VPS и bare metal)
+        — сетевые интерфейсы, порты, управление доступами, реагирование на инциденты
+      - Управление Kubernetes-кластерами в Yandex Cloud и self-hosted
+        (GitLab, Matrix, Keycloak, Vault); написание и поддержка Helm-чартов
+      - Построил Terraform-инфраструктуру для ~20 AWS-сервисов ($550 → $300/мес);
+        писал собственные модули, развернул ClickHouse; Ansible для конфигурации инстансов
+      - Оптимизировал CI/CD в нескольких репозиториях (GitHub Actions + GitLab CI);
+        единая структура пайплайнов сократила время деплоя с 8 до 2 минут
+      - Построил observability-стек с нуля — пробы VictoriaMetrics, алертинг Prometheus,
+        кастомные дашборды Grafana; Alertmanager с доставкой в Telegram и Matrix
+      - Спроектировал и разработал SaaS-сервис мониторинга полного цикла (Go + Gin/GORM + React)
+        — проверки ping, домена, SSL с интервалами от 10 сек до 24 часов; задеплоен в кластере Kubernetes
+      - Реагировал на SSH brute-force атаки через KVM live-доступ,
+        блокировку портов, ротацию пользователей и настройку таймаутов
+      - Вырастил команду инфраструктуры с 3 до 6 человек; менторил 3 джуниоров
+    stack: [Kubernetes, Helm, Docker, Terraform, Ansible, AWS, Yandex Cloud, GitLab CI, GitHub Actions, Go, React, PostgreSQL, ClickHouse, VictoriaMetrics, Grafana]
 
   - company: SOFTINTERMOB
-    role: Unity Developer
+    role: Unity-разработчик
     period: Ноя 2023 — Июл 2024
     description:
-      - Разработал два мобильных приложения от Figma-дизайна до релиза в App Store
-      - Интегрировал Firebase и сторонние SDK, решал проблемы совместимости на iOS/Android
-      - Провёл масштабный рефакторинг legacy-кода, улучшил стабильность и производительность
+      - Разработал два мобильных приложения от Figma до релиза в App Store — полный цикл
+      - Интегрировал Firebase и сторонние SDK, решал проблемы совместимости iOS/Android
+      - Рефакторил legacy-кодовую базу, улучшил стабильность и производительность
     stack: [Unity, C#, Firebase, iOS, Android]
 
   - company: AZNResearch
-    role: Fullstack Developer
+    role: Fullstack-разработчик
     period: Июл 2022 — Окт 2023
     description:
-      - Спроектировал frontend-архитектуру для внутренних gov-продуктов на Angular + Tailwind
-      - Разработал backend-микросервисы на .NET Core + EF Core, писал REST API и LINQ-запросы
-      - Внедрил Git workflow, code review и CI-пайплайны, повысил производительность команды на 25%
+      - Проектировал фронтенд-архитектуру внутренних продуктов для госсектора и enterprise (Angular + Tailwind)
+      - Разрабатывал бэкенд-микросервисы на .NET Core + EF Core, REST API и LINQ-запросы
+      - Внедрил Git-воркфлоу, код-ревью и CI-пайплайны, повысил продуктивность команды на 25%
     stack: [Angular, Tailwind, C#, .NET Core, SQL Server, MySQL]
 
   - company: Neosight
-    role: Game Designer
+    role: Гейм-дизайнер
     period: Ноя 2021 — Фев 2022
     description:
-      - Разработал ГДД для 6 мобильных игр — механики, монетизация, прогрессия
-      - Проводил concept validation, поднял установки в 30 раз, CTR с 0.4% до 5%
-      - Балансировал уровни и игровые кривые по метрикам retention, difficulty, drop-off
+      - Написал GDD для 6 мобильных игр — механики, монетизация, прогрессия
+      - Проводил эксперименты по валидации концептов, вырастил установки в 30 раз, CTR с 0.4% до 5%
+      - Балансировал уровни и кривые сложности по метрикам retention и drop-off
     stack: [Unity, Game Design, Analytics]
 
   - company: Udemy
-    role: Unity Developer
+    role: Unity-разработчик
     period: Мар 2021 — Окт 2021
     description:
-      - Разработал с нуля приложение для изучения немецкого — 22 категории, ~3000 карточек
+      - Разработал приложение для изучения немецкого с нуля — 22 категории, ~3000 карточек
       - Оптимизировал архитектуру и хранение данных, уменьшил размер с ~3GB до 400MB
     stack: [Unity, C#, JSON, iOS, Android]
 
   - company: Popside Games
-    role: Level Designer
+    role: Левел-дизайнер
     period: Июл 2020 — Окт 2020
     description:
-      - Создал 3000+ уровней для Match-3 и Solitaire в условиях плотного продакшн-графика
-      - Улучшил проходимость уровней на 15% через итеративное тестирование
+      - Спроектировал и сбалансировал 3000+ уровней для Match-3 и Solitaire в сжатые сроки
+      - Улучшил completion rate уровней на 15% через итеративное тестирование
     stack: [Game Design, Level Design]
 
   - company: SayGames
-    role: Game Designer
+    role: Гейм-дизайнер
     period: Фев 2020 — Июн 2020
     description:
-      - Проектировал механики и уровни для гиперкэжуал-прототипов
+      - Проектировал механики и уровни для hyper-casual прототипов
       - Участвовал в разработке Send Balls (100M+ скачиваний) и FlowerKing
-      - Повысил D1-retention на 10% через итерации по метрикам retention/drop-off
+      - Улучшил D1-retention на 10% через итерации по метрикам
     stack: [Game Design, Unity]
 
   - company: Goodline
     role: Software Engineer
     period: Ноя 2019 — Янв 2020
     description:
-      - Разрабатывал и адаптировал внутренние React-интерфейсы под мобильные устройства
+      - Разрабатывал и адаптировал внутренние React-интерфейсы для мобильных устройств
       - Улучшил производительность на 25% через оптимизацию компонентов
     stack: [React, JavaScript]
 
   - company: Project Tech
-    role: Software Engineer / Co-Founder
+    role: Software Engineer / Сооснователь
     period: Фев 2017 — Окт 2019
     description:
-      - Сооснователь студии — участвовал в найме, вёл переговоры с клиентами, заключал контракты
+      - Основал студию разработки — нанимал разработчиков, вёл переговоры с клиентами, заключал контракты
       - Выступал вторым инженером и техлидом — от архитектурных решений до продакшн-кода
-      - Выпустил 10+ продуктов — игры, мобильные приложения, бизнес-решения для ресторанов, доставки еды, VR
-      - Разработал мультиплеерный бэкенд для Bhop Jump вдвоём — P2P + dedicated servers до 16 игроков, $160K выручки за Q1
-      - Предлагал паблишинг-сделки инди-разработчикам — ранний опыт в продукте и бизнесе
+      - Выпустил 10+ продуктов — игры, мобильные приложения и бизнес-ПО для ресторанов, доставки и VR
+      - Построил мультиплеерный бэкенд для Bhop Jump вдвоём — P2P + выделенные серверы до 16 игроков, $160K выручки в Q1
+      - Питчил паблишинг-сделки инди-разработчикам — ранний опыт в продукте и бизнес-развитии
     stack: [Unity, C#, React, React Native, Xamarin, Node.js, WebSockets, Docker, VR]
 
 education:
   - institution: Udemy
-    degree: Certified Kubernetes Administrator
+    degree: Linux Foundation Computer Science
     period: "2025"
 
   - institution: Udemy
-    degree: Linux Foundation Computer Science 
+    degree: Certified Kubernetes Administrator
     period: "2025"
 
   - institution: Wargaming Forge
     degree: Level Designer & Balancing
     period: "2020"
 
-  - institution: Сибирский Политехнический Университет
-    degree: Факультет информационных технологий
+  - institution: Siberian Polytechnic University / Сибирский политехнический университет
+    degree: Faculty of Information Technology / Факультет информационных технологий
     period: 2017–2018
 
 languages:
   - language: Русский
     level: Родной
   - language: Английский
-    level: IELTS 7.0 (B2) 
+    level: IELTS 7.0 (B2)
