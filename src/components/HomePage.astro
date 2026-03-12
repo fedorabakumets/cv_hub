@@ -14,15 +14,20 @@ const {
   pdfUrl,
   docxUrl,
   txtUrl,
+  t: tProp = {},
+  profile = "" 
 } = Astro.props;
 
 const t = {
-  nameFallback: lang === 'ru' ? 'Без имени'   : 'Unnamed',
-  contacts:     lang === 'ru' ? 'Контакты'    : 'Contacts',
-  skills:       lang === 'ru' ? 'Навыки'      : 'Skills',
-  experience:   lang === 'ru' ? 'Опыт'        : 'Experience',
-  achievements: lang === 'ru' ? 'Достижения'  : 'Achievements',
-  downloads:    lang === 'ru' ? 'Скачать'     : 'Download',
+  nameFallback: tProp.nameFallback ?? 'Unnamed',
+  contacts:     tProp.contacts     ?? 'Contacts',
+  skills:       tProp.skills       ?? 'Skills',
+  experience:   tProp.experience   ?? 'Experience',
+  achievements: tProp.achievements ?? 'Achievements',
+  downloads:    tProp.downloads    ?? 'Download',
+  company:      tProp.company      ?? 'Company',
+  empty_skills:      tProp.empty_skills      ?? 'Add skills to YAML — tags will appear here.',
+  empty_experience:  tProp.empty_experience  ?? 'Add experience to YAML — your timeline will appear here.',
   pdf:  'PDF',
   docx: 'DOCX',
   txt:  'TXT',
@@ -54,7 +59,7 @@ const skillGroups = rawSkills
   .filter((g) => g.items.length > 0);
 ---
 
-<Layout title={pageTitle} lang={lang} section="main">
+<Layout title={pageTitle} lang={lang} section="main" profile={profile}>
   <section class="container">
     <div class="page-grid">
 
@@ -87,9 +92,7 @@ const skillGroups = rawSkills
             </div>
           ) : (
             <p class="muted">
-              {lang === 'ru'
-                ? 'Добавь skills в YAML — и тут появятся теги.'
-                : 'Add skills to YAML — tags will appear here.'}
+              {t.empty_skills}
             </p>
           )}
         </article>
@@ -147,7 +150,7 @@ const skillGroups = rawSkills
               {experience.map((e) => (
                 <article class="card item">
                   <div class="item__top">
-                    <strong>{e.company ?? (lang === 'ru' ? 'Компания' : 'Company')}</strong>
+                    <strong>{e.company ?? t.company}</strong>
                     <span class="muted">{e.period ?? ''}</span>
                   </div>
                   {e.role && <div class="muted">{e.role}</div>}
@@ -162,9 +165,7 @@ const skillGroups = rawSkills
           ) : (
             <article class="card">
               <p class="muted">
-                {lang === 'ru'
-                  ? 'Добавь experience в YAML — тут появится таймлайн опыта.'
-                  : 'Add experience to YAML — your timeline will appear here.'}
+                {t.empty_experience}
               </p>
             </article>
           )}
