@@ -22,13 +22,8 @@ import {
 // ── Paths ─────────────────────────────────────────────────────────────────────
 
 const ROOT       = path.resolve('.');
-const CONTENT    = path.join(ROOT, 'src/content/cv');
+const CONTENT    = path.join(ROOT, 'public/cv');   // ← читаем из public/cv (merged)
 const OUTPUT_DIR = path.join(ROOT, 'public/downloads');
-
-const FILES = [
-  { yaml: 'en.yaml', suffix: 'en' },
-  { yaml: 'ru.yaml', suffix: 'ru' },
-];
 
 const BULLETS_REF = 'resume-bullets';
 
@@ -42,7 +37,7 @@ const LIGHT  = '888888';
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
 function loadYaml(filename) {
-  const raw = fs.readFileSync(path.join(CONTENT, filename), 'utf8');
+  const raw = fs.readFileSync(path.join(ROOT, 'public/cv', filename), 'utf8');
   return parse(raw);
 }
 
@@ -371,16 +366,21 @@ function generateDocx(cv, lang = 'en') {
 async function main() {
   ensureDir(OUTPUT_DIR);
 
-  for (const { yaml, suffix } of FILES) {
-    const cv = loadYaml(yaml);
+  const files = fs.readdirSync(path.join(ROOT, 'public/cv'))
+    .filter(f => f.endsWith('.yaml'));
 
-    const txt = generateTxt(cv, suffix);
+  for (const file of files) {
+    const suffix = file.replace('.yaml', '');        // en, ru, en_devops, ru_gamedev …
+    const lang   = suffix.split('_')[0];             // en, ru
+    const cv     = loadYaml(file);
+
+    const txt     = generateTxt(cv, lang);
     const txtPath = path.join(OUTPUT_DIR, `resume_${suffix}.txt`);
     fs.writeFileSync(txtPath, txt, 'utf8');
     console.log(`✓ ${txtPath}`);
 
-    const doc = generateDocx(cv, suffix);
-    const buffer = await Packer.toBuffer(doc);
+    const doc     = generateDocx(cv, lang);
+    const buffer  = await Packer.toBuffer(doc);
     const docxPath = path.join(OUTPUT_DIR, `resume_${suffix}.docx`);
     fs.writeFileSync(docxPath, buffer);
     console.log(`✓ ${docxPath}`);

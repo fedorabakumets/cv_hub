@@ -16,7 +16,6 @@ import { defineCollection, z } from 'astro:content';
 
 const linkSchema = z.object({
   label: z.string().optional().default(''),
-  // allow https://, http:// and mailto: (only validate when provided)
   url: z
     .string()
     .optional()
@@ -58,19 +57,12 @@ const cv = defineCollection({
     name: z.string().optional().default(''),
     title: z.string().optional().default(''),
     summary: z.string().optional().default(''),
-
     contacts: z.array(linkSchema).optional().default([]),
-
     achievements: z.array(z.string()).optional().default([]),
-
     skills: z.array(cvSkillGroupSchema).optional().default([]),
-
     experience: z.array(cvExperienceSchema).optional().default([]),
-
     education: z.array(cvEducationSchema).optional().default([]),
-
     languages: z.array(cvLanguageSchema).optional().default([]),
-
     location: z.string().optional().default(''),
     timezone: z.string().optional().default(''),
     work_permit: z.string().optional().default(''),
@@ -103,45 +95,29 @@ const showcaseMediaSchema = z.object({
 const showcaseProjectSchema = z.object({
   slug: z.string().optional().default(''),
   name: z.string().optional().default(''),
-
-  // Sorting priority (lower shows earlier). Accepts number or numeric string.
   order: z.coerce.number().optional(),
-
   category: z.string().optional().default(''),
   role: z.string().optional().default(''),
-
-  // Accept string/number/undefined and always store as string
   year: z.preprocess(
     (v) => (v === undefined || v === null ? '' : String(v)),
     z.string().optional().default('')
   ),
-
   description: z.string().optional().default(''),
-
   platforms: z.array(z.string()).optional().default([]),
   tags: z.array(z.string()).optional().default([]),
-
   theme: z
     .enum(['auto', 'blue', 'cyan', 'emerald', 'magenta'])
     .optional()
     .default('auto'),
-
   accent: z
     .string()
     .regex(/^#([0-9a-fA-F]{3}){1,2}$/, 'accent must be a HEX color like #3b82f6')
     .optional(),
-
   metrics: z.array(showcaseMetricSchema).optional().default([]),
-
   stack: z.array(z.string()).optional().default([]),
   links: z.array(showcaseLinkSchema).optional().default([]),
-
-  // media can be missing entirely or be an empty list
   media: z.array(showcaseMediaSchema).optional().default([]),
-
   featured: z.boolean().optional().default(false),
-
-  // Archive flags (some YAMLs use `archived`, some use `archive`)
   archived: z.boolean().optional().default(false),
   archive: z.boolean().optional().default(false),
 }).passthrough();
@@ -170,9 +146,50 @@ const changelog = defineCollection({
   }),
 });
 
+// Profiles
+const profiles = defineCollection({
+  type: 'data',
+  schema: z.object({
+    profiles: z.array(z.object({
+      id: z.string(),
+      label: z.string(),
+      slug: z.string(),
+      spec: z.string().nullable().optional().default(null),
+    })),
+  }),
+});
+
+// Languages
+const languages = defineCollection({
+  type: 'data',
+  schema: z.object({
+    default: z.string(),
+    languages: z.array(z.object({
+      id: z.string(),
+      label: z.string(),
+    })),
+  }),
+});
+
+// i18n translations
+const translationValueSchema = z.record(z.string());
+
+const i18n = defineCollection({
+  type: 'data',
+  schema: z.object({
+    nav: z.record(translationValueSchema).optional().default({}),
+    cv: z.record(translationValueSchema).optional().default({}),
+    showcase: z.record(translationValueSchema).optional().default({}),
+    changelog: z.record(translationValueSchema).optional().default({}),
+    meta: z.record(translationValueSchema).optional().default({}),
+  }),
+});
+
 export const collections = {
   cv,
   showcase,
-  changelog
+  changelog,
+  profiles,
+  languages,
+  i18n,
 };
-

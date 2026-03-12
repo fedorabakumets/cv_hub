@@ -7,13 +7,14 @@
     "preview": "astro preview",
     "astro":   "astro",
 
+    "cv:build": "node src/scripts/merge.mjs",
     "resume:generate":     "node .github/scripts/generate-resume.js",
     "resume:pdf":          "node src/scripts/resume-export-pdf.mjs",
     "resume:import":       "node src/scripts/resume-import-json.mjs",
     "resume:linkedin":     "node src/scripts/resume-import-linkedin.mjs",
     "resume:import:all":   "node src/scripts/resume-import-json.mjs docs/cv_en.json en && node src/scripts/resume-import-json.mjs docs/cv_ru.json ru",
 
-    "build": "npm run resume:generate && npm run resume:pdf && astro build"
+    "build": "npm run cv:build && npm run resume:generate && npm run resume:pdf && astro build"
   },
   "dependencies": {
     "ajv": "^8.18.0",

@@ -31,7 +31,7 @@ function ensureDir(dir) {
 }
 
 function loadYaml(filename) {
-  const raw = fs.readFileSync(path.join(CONTENT, filename), 'utf8');
+  const raw = fs.readFileSync(path.join(ROOT, 'public/cv', filename), 'utf8');
   return parse(raw);
 }
 
@@ -407,17 +407,21 @@ function html(cv, lang = 'en') {
 async function run() {
   ensureDir(OUTPUT_DIR);
 
+  const files = fs.readdirSync(path.join(ROOT, 'public/cv'))
+    .filter(f => f.endsWith('.yaml'));
+
   const browser = await chromium.launch();
   const page    = await browser.newPage();
 
-  for (const { yaml, suffix } of FILES) {
-    const cv      = loadYaml(yaml);
-    const content = html(cv, suffix);
+  for (const file of files) {
+    const suffix  = file.replace('.yaml', '');
+    const lang    = suffix.split('_')[0];
+    const cv      = loadYaml(file);
+    const content = html(cv, lang);
 
     await page.setContent(content, { waitUntil: 'networkidle' });
 
     const outPath = path.join(OUTPUT_DIR, `resume_${suffix}.pdf`);
-
     await page.pdf({
       path:            outPath,
       format:          'A4',
