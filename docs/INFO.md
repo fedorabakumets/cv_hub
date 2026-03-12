@@ -1,409 +1,510 @@
-# CV Hub
+# CV Hub — INFO
 
-![Deploy](https://github.com/KeeGooRoomiE/cv_hub/actions/workflows/deploy.yml/badge.svg)
-![License](https://img.shields.io/badge/license-MIT-blue)
-![Astro](https://img.shields.io/badge/built%20with-Astro-ff5d01)
-[![Last Commit](https://img.shields.io/github/last-commit/KeeGooRoomiE/cv_hub?color=blue)](https://github.com/KeeGooRoomiE/cv_hub/commits/main)
-[![Stars](https://img.shields.io/github/stars/KeeGooRoomiE/cv_hub?style=social)](https://github.com/KeeGooRoomiE/cv_hub/stargazers)
-[![Visitors](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FKeeGooRoomiE%2Fcv_hub&count_bg=%2379C83D&title_bg=%23555555&title=visitors&edge_flat=false)](https://hits.seeyoufarm.com)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/KeeGooRoomiE/cv_hub/blob/main/CONTRIBUTING.md)
-
-[![Lighthouse Performance](https://img.shields.io/badge/Lighthouse-Performance%20100-00C853?logo=lighthouse&logoColor=white)](https://keegooroomie.github.io/cv_hub/)
-[![Lighthouse Accessibility](https://img.shields.io/badge/Lighthouse-Accessibility%20100-00C853?logo=lighthouse&logoColor=white)](https://keegooroomie.github.io/cv_hub/)
-[![Lighthouse Best Practices](https://img.shields.io/badge/Lighthouse-Best%20Practices%2096-00C853?logo=lighthouse&logoColor=white)](https://keegooroomie.github.io/cv_hub/)
-[![Lighthouse SEO](https://img.shields.io/badge/Lighthouse-SEO%20100-00C853?logo=lighthouse&logoColor=white)](https://keegooroomie.github.io/cv_hub/)
-
-**Resume as Code. Reproducible. Versioned. Deployable.**
-
-CV Hub turns your resume into infrastructure.
-
-One YAML file becomes:
-
-- A live personal website
-- Downloadable PDF, DOCX and TXT files
-- A structured, version-controlled professional profile
-- A reproducible build artifact
-
-No duplicated resumes. No platform lock-in. No visual builders.
-
-Just data → build → deploy.
-
-Treat your career like a system.
-
-## Preview
-
-![CV Hub Preview](docs/repo-assets/preview_main.jpeg)
-
-🌐 **Live demo:** https://keegooroomii.github.io/cv_hub/
+Полный справочник по структуре данных, конфигурации и архитектуре проекта.
 
 ---
 
-## Who is this for
+## Содержание
 
-CV Hub works for anyone who wants a professional website with full personal control:
-
-- Developers, DevOps engineers, designers, managers, analysts — any specialist
-- Anyone tired of Tilda, Notion, Canva, and other platforms
-- Anyone who wants to version their resume with Git and automate format generation
-
-> Minimum requirement — basic familiarity with the command line and Git. If you can clone a repo and edit text files, that's enough.
-
----
-
-## What you get
-
-- Main page — CV
-- Showcase page — projects and case studies
-- Changelog page — version history of your CV Hub
-- Two language support (RU / EN)
-- Downloadable resume files (PDF / DOCX / TXT) generated automatically from YAML
-- Clean static HTML deployed on GitHub Pages
-- Full control over the visual style through a single CSS file with theme support
-- URL-based theme switching for live previews
+1. [Структура файлов данных](#1-структура-файлов-данных)
+2. [CV YAML — полный справочник полей](#2-cv-yaml--полный-справочник-полей)
+3. [Multi-profile система](#3-multi-profile-система)
+4. [Языки и i18n](#4-языки-и-i18n)
+5. [Showcase — projects.yaml](#5-showcase--projectsyaml)
+6. [Changelog — changelog.yaml](#6-changelog--changelogyaml)
+7. [Поток данных](#7-поток-данных)
+8. [Компоненты](#8-компоненты)
+9. [Роутинг](#9-роутинг)
+10. [Генерация документов](#10-генерация-документов)
 
 ---
 
-## Why this exists
-
-Most people maintain:
-- A PDF resume
-- A LinkedIn profile
-- A portfolio site
-- A Notion page
-- A DOCX file somewhere on their desktop
-
-They all drift out of sync.
-
-CV Hub eliminates duplication and centralizes everything into one structured source of truth.
-
-Edit once. Regenerate everything. Commit changes. Deploy.
-
-This is especially powerful for engineers, DevOps, and technical specialists who prefer automation over manual editing.
-
----
-
-## Quick start
-
-From zero to live site in under 5 minutes.
-
-### 1. Fork the repository
-
-Click **Fork** in the top right corner of the repository page on GitHub.
-
-After forking you'll have your own copy: `github.com/YOUR_ACCOUNT/cv_hub`
-
-### 2. Clone to your local machine
-
-```bash
-git clone https://github.com/YOUR_ACCOUNT/cv_hub.git
-cd cv_hub
-```
-
-### 3. Install dependencies
-
-```bash
-npm install
-npx playwright install chromium --with-deps
-```
-
-### 4. Run locally
-
-```bash
-npm run dev
-```
-
-The site will be available at:
-
-```
-http://localhost:4321
-```
-
-Pages:
-- `http://localhost:4321/` — main CV page
-- `http://localhost:4321/showcase` — projects showcase
-- `http://localhost:4321/changelog` — version history
-
----
-
-## How to edit your data
-
-All data is stored in YAML files inside `src/content/`.
+## 1. Структура файлов данных
 
 ```
 src/content/
   cv/
-    en.yaml          ← CV in English
-    ru.yaml          ← CV in Russian
+    en.yaml              ← base CV in English
+    ru.yaml              ← base CV in Russian
+    en_devops.yaml       ← DevOps delta (optional)
+    ru_devops.yaml       ← DevOps delta in Russian (optional)
+    en_gamedev.yaml      ← GameDev delta (optional)
+    ru_gamedev.yaml
+  profiles/
+    profiles.yml         ← profile registry (optional)
+  languages/
+    languages.yml        ← language config
+  i18n/
+    translations.yaml    ← UI strings for all languages
   showcase/
-    projects.yaml    ← projects list
+    projects.yaml        ← showcase projects
   changelog/
-    changelog.yaml   ← version history
+    changelog.yaml       ← version history
 ```
 
-For full YAML structure reference and field descriptions — see **[`docs/INFO.md`](docs/INFO.md)**.
-
-Example files with all supported fields are available in:
+После выполнения `npm run cv:build` в `public/cv/` появляются смёрженные артефакты:
 
 ```
-docs/examples/
-  example_cv.yaml   ← full YAML example with comments
-  example_cv.json   ← JSON Resume format example
+public/cv/
+  en.yaml
+  ru.yaml
+  en_devops.yaml
+  ru_devops.yaml
+  en_gamedev.yaml
+  ru_gamedev.yaml
 ```
 
 ---
 
-## How to fill in your data
+## 2. CV YAML — полный справочник полей
 
-There are three ways to get your resume into YAML:
+### Верхний уровень
 
-### Option A — Edit YAML directly
+```yaml
+name: "Alexander Gusarov"
+title: "DevOps Engineer | Kubernetes · Terraform · AWS"
+summary: >
+  Multi-line summary text.
+  Supports YAML block scalar.
 
-Open `src/content/cv/en.yaml` and `ru.yaml` and fill in your data manually.
-See [`docs/INFO.md`](docs/INFO.md) for the full field reference.
-
-### Option B — Import from JSON Resume
-
-If your resume exists in [JSON Resume](https://jsonresume.org) format:
-
-```bash
-# Single language
-npm run resume:import -- docs/cv_en.json en
-npm run resume:import -- docs/cv_ru.json ru
-
-# Both at once
-npm run resume:import:all
+contacts: [...]
+achievements: [...]
+skills: [...]
+experience: [...]
+education: [...]
+languages: [...]
 ```
 
-### Option C — Generate from any resume via LLM
+### contacts
 
-If you have a PDF, DOCX, or plain text resume — use Claude or ChatGPT with the ready-made prompt to generate YAML automatically.
+```yaml
+contacts:
+  - label: Email
+    url: mailto:your@email.com
+  - label: GitHub
+    url: https://github.com/username
+  - label: Telegram
+    url: https://t.me/username
+  - label: LinkedIn
+    url: https://linkedin.com/in/username
+  - label: Upwork
+    url: https://upwork.com/freelancers/~...
+```
 
-👉 **[See `docs/llm-resume-guide.md`](docs/llm-resume-guide.md)**
+Поддерживается любое количество контактов. `url` может быть любой ссылкой или `mailto:`.
+
+### achievements
+
+```yaml
+achievements:
+  - "Managed infrastructure for 750+ Linux servers with 99.9% uptime"
+  - "Reduced deploy time from 8 to 2 minutes (−75%)"
+  - "Cut AWS costs from $550 to $300/month (−45%)"
+```
+
+Массив строк. Отображается как список ключевых достижений.
+
+### skills
+
+Поддерживаются два формата — плоский и групповой:
+
+```yaml
+# Плоский (все теги в одном блоке)
+skills:
+  - Kubernetes
+  - Docker
+  - Terraform
+
+# Групповой (рекомендуется)
+skills:
+  - group: Orchestration
+    items: [Kubernetes, Helm, Docker]
+  - group: IaC & Automation
+    items: [Terraform, Ansible]
+  - group: Cloud
+    items: [AWS — EC2, S3, RDS, VPC, IAM, ALB]
+  - group: Languages
+    items: [Go, Python, Bash]
+```
+
+Оба формата можно смешивать в одном массиве.
+
+### experience
+
+```yaml
+experience:
+  - company: "InfoScale"
+    role: "DevOps Engineer"
+    period: "Dec 2024 — Jan 2026"
+    description:
+      - "Administered Kubernetes production clusters"
+      - "Built IaC solution with Terraform + Ansible on AWS"
+      - "Reduced MTTR by 60% with custom Grafana dashboards"
+    stack: [Kubernetes, Helm, Docker, Terraform, AWS, Go]
+```
+
+Поля:
+- `company` — название компании (используется как ключ при merge)
+- `role` — должность
+- `period` — период работы (свободная строка)
+- `description` — массив строк с описанием задач
+- `stack` — массив технологий (отображается курсивом под описанием)
+
+### education
+
+```yaml
+education:
+  - institution: "Udemy"
+    degree: "Certified Kubernetes Administrator"
+    period: "2025"
+  - institution: "Siberian Polytechnic University"
+    degree: "Faculty of Information Technology"
+    period: "2017–2018"
+```
+
+### languages (spoken)
+
+```yaml
+languages:
+  - language: Russian
+    level: Native
+  - language: English
+    level: IELTS 7.0 (B2)
+```
 
 ---
 
-## How to customize the look
+## 3. Multi-profile система
 
-All styles live in:
+### Концепция
+
+Один базовый YAML + delta-файлы для каждого профиля. Merge-пайплайн собирает итоговые артефакты перед сборкой сайта.
+
+### profiles.yml
+
+```yaml
+# src/content/profiles/profiles.yml
+profiles:
+  - id: default
+    label: "Generalist"
+    slug: ""          # URL-сегмент. Пустая строка = корень /
+    spec: null        # null = копировать base как есть
+
+  - id: devops
+    label: "DevOps"
+    slug: "devops"    # URL: /devops, /devops/ru
+    spec: devops      # читает en_devops.yaml, ru_devops.yaml
+
+  - id: gamedev
+    label: "Game Developer"
+    slug: "gamedev"
+    spec: gamedev
+```
+
+`slug` и `spec` — разные вещи:
+- `slug` — то, что в URL
+- `spec` — префикс имени delta-файла (`{lang}_{spec}.yaml`)
+
+Это позволяет иметь `/backend` в URL, но читать из `en_devops.yaml`.
+
+Если `profiles.yml` отсутствует — система работает с одним дефолтным профилем.
+
+### Delta-файл
+
+Delta-файл содержит только то, что меняется. Все остальные поля берутся из base.
+
+```yaml
+# src/content/cv/en_devops.yaml
+title: "DevOps / Platform Engineer | Kubernetes · Terraform · AWS"
+
+summary: >
+  DevOps-focused summary...
+
+skills:
+  - group: Orchestration
+    items: [Kubernetes, Helm, Docker]
+
+experience:
+  - company: InfoScale        # поля целиком из base, переопределений нет
+
+  - company: AZNResearch
+    role: "Backend Engineer"  # переопределяем role
+    description:
+      - "Developed backend microservices with .NET Core"
+      - "Introduced Git workflow and CI pipelines"
+    # stack не указан → берётся из base
+```
+
+### Правила merge
+
+| Поле | Поведение |
+|---|---|
+| Скалярные поля (`title`, `summary`, `name`) | spec wins; отсутствующие — из base |
+| `skills` | Целиком заменяется если указан в spec |
+| `experience` | Whitelist по `company`. Только перечисленные компании. Поля мёрджатся: base + spec override |
+| `achievements` | Целиком заменяется если указан в spec |
+| `contacts`, `education`, `languages` | Целиком заменяется если указан в spec |
+
+**Важно про `experience` whitelist:** если компания указана в spec только как `- company: InfoScale` без других полей — она попадает в результат с полным содержимым из base. Это способ включить запись без изменений.
+
+---
+
+## 4. Языки и i18n
+
+### languages.yml
+
+```yaml
+# src/content/languages/languages.yml
+default: "en"
+languages:
+  - id: "en"
+    label: "EN"
+  - id: "ru"
+    label: "RU"
+```
+
+`default` определяет язык для URL `/` (без языкового сегмента).
+
+### Добавление языка
+
+1. Добавить запись в `languages.yml`
+2. Создать `src/content/cv/{lang}.yaml` (или оставить без файла — будет фоллбек на default)
+3. Добавить переводы в `translations.yaml`
+4. Опционально: создать `src/content/cv/{lang}_{spec}.yaml` для каждого профиля
+
+### translations.yaml
+
+```yaml
+# src/content/i18n/translations.yaml
+nav:
+  home:
+    en: "Home"
+    ru: "Главная"
+  showcase:
+    en: "Showcase"
+    ru: "Проекты"
+
+cv:
+  skills:
+    en: "Skills"
+    ru: "Навыки"
+  experience:
+    en: "Experience"
+    ru: "Опыт"
+  download:
+    en: "Download"
+    ru: "Скачать"
+
+meta:
+  description:
+    en: "CV Hub - one place for your actual resume."
+    ru: "CV Hub - единое место для твоего резюме."
+  locale:
+    en: "en_US"
+    ru: "ru_RU"
+```
+
+Фоллбек-цепочка: запрошенный язык → `en` → ключ пути (как fallback строка).
+
+### i18n хелпер
+
+```ts
+import { makeT } from '../scripts/t';
+
+const translations = await getEntry('i18n', 'translations');
+const t = makeT(translations.data, lang);
+
+t('nav.home')       // → "Home" / "Главная"
+t('cv.skills')      // → "Skills" / "Навыки"
+```
+
+---
+
+## 5. Showcase — projects.yaml
+
+```yaml
+# src/content/showcase/projects.yaml
+projects:
+  - id: bhop-jump
+    title: "Bhop Jump"
+    description: "Multiplayer mobile game with P2P + dedicated server architecture."
+    tags: [Unity, C#, Multiplayer, iOS, Android]
+    platforms: [iOS, Android]
+    color: cyan           # blue | cyan | emerald | magenta
+    featured: true
+    archived: false
+    links:
+      - label: App Store
+        url: https://apps.apple.com/...
+      - label: GitHub
+        url: https://github.com/...
+    media:
+      - type: image
+        src: /media/projects/bhop-jump/01.jpg
+    metrics:
+      - label: Revenue Q1
+        value: "$160K+"
+      - label: Players
+        value: "up to 16"
+```
+
+Поля `color`: `blue` (default), `cyan`, `emerald`, `magenta` — определяют акцентный цвет карточки.
+
+`archived: true` — карточка сворачивается, раскрывается по клику.
+
+`featured: true` — показывает pin-иконку на карточке.
+
+`metrics` — отображается как сетка метрик внутри карточки.
+
+---
+
+## 6. Changelog — changelog.yaml
+
+```yaml
+# src/content/changelog/changelog.yaml
+entries:
+  - version: "1.3.0"
+    date: "2026-03-11"
+    title: "Multi-profile system"
+    changes:
+      - "Added profiles × languages routing"
+      - "merge.mjs — YAML merge pipeline"
+      - "Per-profile PDF/DOCX/TXT generation"
+  - version: "1.2.0"
+    date: "2026-03-03"
+    title: "Initial release"
+    changes:
+      - "CV page with EN/RU support"
+      - "Showcase page"
+      - "GitHub Actions CI/CD"
+```
+
+---
+
+## 7. Поток данных
 
 ```
-src/styles/global.css
+src/content/cv/en.yaml          (base)
+src/content/cv/en_devops.yaml   (spec delta)
+         ↓
+     merge.mjs
+         ↓
+  public/cv/en_devops.yaml      (merged artifact)
+         ↓
+    ┌────┴──────────────────────────────┐
+    ↓                                   ↓
+generate-resume.js               astro build
+resume-export-pdf.mjs                   ↓
+    ↓                         src/pages/[...slug].astro
+DOCX / TXT / PDF                reads public/cv/en_devops.yaml
+                                        ↓
+                               HomePage.astro renders CV
 ```
 
-The file is token-based — to restyle the entire site, edit only the `:root` block at the top. Every visual property flows from these tokens:
+Страницы читают данные из `public/cv/` (merged artifacts), не из `src/content/cv/` напрямую. Это позволяет избежать дублирования логики merge в Astro.
 
-```css
-:root {
-  --bg: #070a10;          /* page background */
-  --text: #e9eef7;        /* primary text */
-  --text-strong: #edf2fc; /* headings and bold text */
-  --muted: #a6b1c2;       /* secondary text */
-  --accent: #3b82f6;      /* accent color */
-  --accent-2: #60a5fa;    /* secondary accent */
-  --card-bg: ...;         /* card surface gradient */
-  --border: ...;          /* border color */
-  --r-lg: 18px;           /* card border radius */
-  --header-bg: ...;       /* header background with opacity */
+---
+
+## 8. Компоненты
+
+### Layout.astro
+
+Shared layout — header, footer, мета-теги, OG.
+
+Props:
+- `title` — заголовок страницы
+- `lang` — текущий язык (`en`, `ru`)
+- `section` — секция (`main`, `showcase`) для контекстной навигации
+- `profile` — slug текущего профиля (для lang switcher и dropdown)
+- `description` — мета-описание (опционально)
+- `ogImage` — OG-изображение (опционально)
+
+Читает `profiles.yml` и `languages.yml` для генерации навигации. Если `profiles.yml` отсутствует — dropdown не отображается.
+
+### HomePage.astro
+
+Основной CV-рендерер. Принимает данные через props.
+
+Props:
+- `lang` — язык
+- `data` — объект CV из merged YAML
+- `pdfUrl`, `docxUrl`, `txtUrl` — ссылки на скачивание
+- `profile` — передаётся в Layout
+- `t` — объект с переведёнными строками
+
+### ProjectCard.astro
+
+Карточка проекта. Поддерживает два режима:
+- Обычная карточка (`archived: false`)
+- Сворачиваемая архивная карточка (`archived: true`) с toggle
+
+---
+
+## 9. Роутинг
+
+| URL | Файл | Данные |
+|---|---|---|
+| `/` | `index.astro` | `public/cv/{defaultLang}.yaml` |
+| `/ru` | `[...slug].astro` | `public/cv/ru.yaml` |
+| `/devops` | `[...slug].astro` | `public/cv/en_devops.yaml` |
+| `/devops/ru` | `[...slug].astro` | `public/cv/ru_devops.yaml` |
+| `/gamedev` | `[...slug].astro` | `public/cv/en_gamedev.yaml` |
+| `/showcase` | `showcase/index.astro` | `projects.yaml` |
+| `/changelog` | `changelog.astro` | `changelog.yaml` |
+
+`getStaticPaths` в `[...slug].astro` генерирует все комбинации профиль × язык, пропуская default profile + default lang (это обрабатывает `index.astro`).
+
+### buildHref helper
+
+```ts
+function buildHref(profileSlug: string, langId: string): string {
+  const segments = [];
+  if (profileSlug) segments.push(profileSlug);
+  if (langId !== defaultLang) segments.push(langId);
+  return `${base}/${segments.join('/')}`;
 }
 ```
 
-Change one variable — the whole site updates.
+Используется в Layout для построения ссылок переключателя языков и dropdown профилей. Lang switcher сохраняет текущий профиль, profile dropdown сохраняет текущий язык.
 
-### Themes
+---
 
-Ready-made themes are in:
+## 10. Генерация документов
 
+### Build order
+
+```bash
+npm run cv:build          # 1. merge YAMLs → public/cv/
+npm run resume:generate   # 2. DOCX + TXT for all files in public/cv/
+npm run resume:pdf        # 3. PDF for all files in public/cv/
+astro build               # 4. static site
 ```
-src/styles/themes/
-```
 
-| File | Description |
-|---|---|
-| `frosted.css` | Dark glass, muted tones |
-| `light.css` | Light background, dark text |
-| `nordic.css` | Nord-inspired, cold blue-grey |
-| `peachy.css` | Warm peach, light background |
+### Именование файлов
 
-To switch the default theme, change the import in `src/components/Layout.astro`:
+| Профиль | Язык | Файл |
+|---|---|---|
+| default | en | `resume_en.pdf` |
+| default | ru | `resume_ru.pdf` |
+| devops | en | `resume_en_devops.pdf` |
+| devops | ru | `resume_ru_devops.pdf` |
+| gamedev | en | `resume_en_gamedev.pdf` |
+
+Формат: `resume_{lang}[_{spec}].{ext}`
+
+### Ссылки на скачивание
+
+Формируются в `index.astro` и `[...slug].astro`:
 
 ```js
-import '../styles/themes/nordic.css';
+const specSuffix = profileData.spec ? `_${profileData.spec}` : '';
+const pdfUrl = `${base}/downloads/resume_${langId}${specSuffix}.pdf`;
 ```
 
-Previews for all themes are available in **[`docs/repo-assets`](docs/repo-assets)**.
+Страница `/devops` предлагает `resume_en_devops.pdf`. Страница `/` предлагает `resume_en.pdf`.
 
-#### Live theme preview via URL
+### Поддерживаемые форматы
 
-Any theme can be previewed live without changing code:
-
-```
-https://YOUR_ACCOUNT.github.io/cv_hub/?theme=peachy
-```
-
-Available values: `frosted`, `light`, `nordic`, `peachy`
-
----
-
-## How to deploy to GitHub Pages
-
-### 1. Enable GitHub Pages in repository settings
-
-`Settings → Pages → Source: GitHub Actions`
-
-### 2. Push your changes
-
-```bash
-git add .
-git commit -m "update cv data"
-git push
-```
-
-Your site will be live at:
-
-```
-https://YOUR_ACCOUNT.github.io/cv_hub/
-```
-
-The deploy workflow runs automatically on every push to `main`. The `base` URL is resolved dynamically — forks work out of the box without any config changes.
-
----
-
-## Resume file generation
-
-All resume files are generated automatically during build:
-
-```bash
-npm run build
-```
-
-This runs in order:
-1. `resume:generate` — DOCX + TXT from YAML
-2. `resume:pdf` — PDF via Playwright from YAML
-3. `astro build` — static site
-
-Output after build:
-
-```
-public/downloads/
-  resume_en.pdf
-  resume_ru.pdf
-  resume_en.docx
-  resume_ru.docx
-  resume_en.txt
-  resume_ru.txt
-  json/
-    cv_en.json
-    cv_ru.json
-```
-
-To generate resume files without building the site:
-
-```bash
-npm run resume:generate   # DOCX + TXT
-npm run resume:pdf        # PDF
-```
-
----
-
-## CLI reference
-
-```bash
-npm run dev                  # start local dev server
-npm run build                # generate all resume files + build site
-npm run resume:generate      # generate DOCX + TXT from YAML
-npm run resume:pdf           # generate PDF from YAML via Playwright
-npm run resume:import        # convert JSON Resume → YAML (single file)
-npm run resume:import:all    # convert both cv_en.json and cv_ru.json
-npm run resume:linkedin      # parse LinkedIn PDF export → YAML (best-effort)
-```
-
----
-
-## Documentation
-
-```
-docs/
-  INFO.md              ← YAML reference, data flow, component structure
-  ENGINEERING.md       ← Engineering decisions and project philosophy
-  llm-resume-guide.md  ← How to generate YAML from a resume using an LLM
-  BKG_INFO.md          ← AnimatedBackground component docs
-  examples/
-    example_cv.yaml    ← Full YAML example with all supported fields
-    example_cv.json    ← JSON Resume format example
-  repo-assets/         ← Theme previews, GitHub label config, release guide
-```
-
-Links: [INFO.md](docs/INFO.md) · [ENGINEERING.md](docs/ENGINEERING.md) · [llm-resume-guide.md](docs/llm-resume-guide.md) · [BKG_INFO.md](docs/BKG_INFO.md) · [example_cv.yaml](docs/examples/example_cv.yaml) · [example_cv.json](docs/examples/example_cv.json)
-
----
-
-## Project structure
-
-```
-src/
-  content/
-    cv/
-      en.yaml
-      ru.yaml
-    showcase/
-      projects.yaml
-    changelog/
-      changelog.yaml
-  pages/
-    index.astro              # Main CV page (EN)
-    ru.astro                 # Main CV page (RU)
-    changelog.astro          # Changelog page
-    showcase/
-      index.astro            # Showcase page (EN)
-      ru.astro               # Showcase page (RU)
-  components/
-    Layout.astro             # Shared layout with header + animated background
-    HomePage.astro           # Main page blocks (reorderable)
-    ProjectCard.astro        # Project card: normal + archived collapse modes
-    AnimatedBackground.astro # CSS-only animated orb background
-  scripts/
-    resume-export-pdf.mjs      # PDF generator (Playwright)
-    resume-import-json.mjs     # JSON Resume → YAML converter
-    resume-import-linkedin.mjs # LinkedIn PDF → YAML parser (best-effort)
-  styles/
-    global.css               # All site styles + design tokens
-    themes/                  # Ready-made color themes
-public/
-  themes/                    # Built theme files (auto-copied from src/styles/themes)
-  media/
-    projects/                # Showcase media files, one folder per project
-  downloads/                 # Generated resume files (after build)
-    json/                    # JSON Resume exports
-.github/
-  scripts/
-    generate-resume.js       # DOCX + TXT generator
-  workflows/
-    deploy.yml               # GitHub Actions CI/CD
-docs/
-  INFO.md
-  ENGINEERING.md
-  BKG_INFO.md
-  llm-resume-guide.md
-  examples/
-    example_cv.yaml
-    example_cv.json
-  repo-assets/
-```
-
----
-
-## Tech stack
-
-- [Astro](https://astro.build) — static site generator
-- YAML — single source of truth
-- [docx](https://docx.js.org) — DOCX generation
-- [Playwright](https://playwright.dev) — PDF generation
-- GitHub Pages — deployment
-- GitHub Actions — CI/CD
-
----
-
-## License
-
-Source code: MIT  
-Content (resume data): © Author
+- **PDF** — через Playwright + HTML-шаблон. Двухколоночный A4-макет.
+- **DOCX** — через docx.js. Структурированный документ со стилями.
+- **TXT** — plain text с разделителями секций.
