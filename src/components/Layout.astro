@@ -78,6 +78,7 @@ const profileLinks = allProfiles.map(p => ({
 
 const currentYear = new Date().getFullYear();
 const authorGit = 'https://github.com/KeeGooRoomiE/cv_hub';
+const authorGitHubPage = 'https://github.com/KeeGooRoomiE/';
 ---
 
 <!doctype html>
@@ -160,7 +161,9 @@ const authorGit = 'https://github.com/KeeGooRoomiE/cv_hub';
 
     <footer class="footer">
       <div class="container footer__inner">
-        <span>© {currentYear}</span>
+        <span><a href={authorGitHubPage} target="_blank" rel="noopener" class="footer__link">
+          Alexander Gusarov
+        </a> © {currentYear}</span>
         <a href={authorGit} target="_blank" rel="noopener" class="footer__link">
           GitHub
         </a>
