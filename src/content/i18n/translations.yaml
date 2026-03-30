@@ -67,6 +67,10 @@ showcase:
     en: "No projects yet."
     ru: "Здесь пока ничего."
     zh: "暂无项目。"
+  case_study:
+    en: "Case Study"
+    ru: "Case Study"
+    zh: "Case Study"
 
 changelog:
   title:
