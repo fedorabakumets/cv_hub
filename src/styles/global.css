@@ -586,7 +586,7 @@ a:hover { text-decoration: underline; }
 
 .project .links a:only-child {
   display: block;
-  width: 100%;
+  width: 50%;
   text-align: center;
 }
 
