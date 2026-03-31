@@ -54,10 +54,6 @@ projects = [...projects].sort((a, b) => {
 });
 
 const projectSlugsWithPages = new Set(getSlugsWithYaml(langIds));
-
-const featured = projects.filter((p: any) => p.featured && !p.archived && !p.archive);
-const regular  = projects.filter((p: any) => !p.featured && !p.archived && !p.archive);
-const archived = projects.filter((p: any) => p.archived || p.archive);
 ---
 
 <Layout title={t('showcase.page_title')} lang={defaultLang} section="showcase" profile="">
@@ -70,50 +66,20 @@ const archived = projects.filter((p: any) => p.archived || p.archive);
       <article class="card"><p class="muted">{t('showcase.empty')}</p></article>
     )}
 
-    {featured.length > 0 && (
+    {projects.length > 0 && (
       <div class="showcase__section">
-        <h2 class="showcase__section-title">{t('showcase.featured')}</h2>
         <div class="grid">
-          {featured.map((p: any) => (
-            <ProjectCard
-              project={p}
-              lang={defaultLang}
-              hasCasePage={projectSlugsWithPages.has(p.slug ?? '')}
-              base={base}
-              defaultLang={defaultLang}
-            />
-          ))}
+          {projects
+            .map((p: any) => (
+              <ProjectCard
+                project={p}
+                lang={defaultLang}
+                hasCasePage={projectSlugsWithPages.has(p.slug ?? '')}
+                base={base}
+                defaultLang={defaultLang}
+              />
+            ))}
         </div>
-      </div>
-    )}
-
-    {regular.length > 0 && (
-      <div class="showcase__section showcase__section--regular">
-        <div class="grid">
-          {regular.map((p: any) => (
-            <ProjectCard
-              project={p}
-              lang={defaultLang}
-              hasCasePage={projectSlugsWithPages.has(p.slug ?? '')}
-              base={base}
-              defaultLang={defaultLang}
-            />
-          ))}
-        </div>
-      </div>
-    )}
-
-    {archived.length > 0 && (
-      <div class="showcase__section showcase__section--archive">
-        {archived.map((p: any) => (
-          <ProjectCard
-            project={p}
-            lang={defaultLang}
-            hasCasePage={projectSlugsWithPages.has(p.slug ?? '')}
-            base={base}
-            defaultLang={defaultLang}
-          />
-        ))}
       </div>
     )}
   </section>
@@ -123,19 +89,4 @@ const archived = projects.filter((p: any) => p.archived || p.archive);
   .showcase__header { margin-bottom: 24px; }
   .showcase__header h1 { margin: 0; }
   .showcase__section { margin-bottom: 14px; }
-  .showcase__section--regular { margin-top: 40px; }
-  .showcase__section--archive {
-    margin-top: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  .showcase__section-title {
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--accent);
-    margin: 0 0 14px;
-  }
 </style>
