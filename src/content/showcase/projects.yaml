@@ -28,14 +28,6 @@ projects:
         url: /cv_hub/showcase/cv-hub
         type: product
 
-      - label: Changelog
-        url: /changelog
-        type: article
-
-      - label: Deep Dive
-        url: /showcase/cv-hub
-        type: product
-
   - slug: steam-deck-keyboard
     order: 2
     name: Steam Deck Custom Keyboard
