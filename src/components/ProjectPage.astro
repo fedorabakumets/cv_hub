@@ -20,13 +20,6 @@ const { data, showcaseHref, langLinks, lang } = Astro.props;
   <!-- Nav: back + language switcher -->
   <nav class="project-page__nav">
     <a class="btn btn--ghost" href={showcaseHref}>← Showcase</a>
-    {langLinks.length > 1 && (
-      <div class="lang">
-        {langLinks.map((l: any) => (
-          <a href={l.href} class={l.active ? 'active' : ''}>{l.label}</a>
-        ))}
-      </div>
-    )}
   </nav>
 
   <!-- Header -->
