@@ -192,6 +192,9 @@ const langLinks = kind === 'project'
 {kind === 'list' ? (
   <Layout title={t('showcase.page_title')} lang={lang} section="showcase" profile="" customLangLinks={showcaseLangLinks}>
     <section class="container">
+      <header class="showcase__header">
+        <h1>{t('showcase.title')}</h1>
+      </header>
       {projects.length === 0 && (
         <article class="card"><p class="muted">{t('showcase.empty')}</p></article>
       )}
