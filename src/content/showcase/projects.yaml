@@ -60,3 +60,31 @@ projects:
         src: /media/projects/sheets-monitor/cover.jpg
         alt: "Sheets Monitor"
         featured: true
+
+  - slug: buxbot
+    order: 3
+    name: ScriptMaster (buxbot)
+    role: Разработчик (vibe coding)
+    year: "2024"
+    description: Система автоматизации веб-задач с GUI на PyQt5, Telegram-ботом и распознаванием капчи. Автоматизирует работу с буксами — SocPublic, SEO-Fast, ProfitCentr.
+    theme: cyan
+    featured: true
+    platforms: [Windows]
+    tags: [python, pyqt5, selenium, automation, telegram, captcha, open-source]
+    metrics:
+      - label: Методов капчи
+        value: "17"
+      - label: Управление
+        value: "GUI + Telegram"
+      - label: Скриптов
+        value: "3+"
+    stack: [Python, PyQt5, Selenium, OpenCV, EasyOCR, Tesseract, pyTelegramBotAPI]
+    links:
+      - label: GitHub
+        url: https://github.com/fedorabakumets/buxbot
+        type: repo
+    media:
+      - type: image
+        src: /media/projects/buxbot/cover.jpg
+        alt: "ScriptMaster GUI"
+        featured: true
