@@ -1,4 +1,27 @@
 projects:
+  - slug: telegram-bot-builder
+    order: 1
+    name: Telegram Bot Builder
+    role: Fullstack-разработчик (vibe coding)
+    year: "2024"
+    description: Визуальный no-code конструктор Telegram-ботов с drag-and-drop интерфейсом. Пользователь перетаскивает узлы на холст — система генерирует готовый Python-код на aiogram.
+    theme: blue
+    featured: true
+    platforms: [Web]
+    tags: [python, react, typescript, telegram, no-code, open-source]
+    metrics:
+      - label: GitHub Stars
+        value: "13"
+      - label: Генерация кода
+        value: "Python + aiogram"
+      - label: Деплой
+        value: "Railway"
+    stack: [React, TypeScript, Express.js, Node.js, PostgreSQL, Drizzle, Python, Jinja2, aiogram]
+    links:
+      - label: GitHub
+        url: https://github.com/fedorabakumets/telegram-bot-builder
+        type: repo
+
   - slug: cv-hub
     order: 1
     name: CV Hub
