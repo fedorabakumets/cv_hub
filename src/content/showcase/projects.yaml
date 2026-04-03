@@ -226,3 +226,8 @@ projects:
         value: "33K"
       - label: Лайков
         value: "633K"
+    media:
+      - type: image
+        src: /media/projects/tiktok-fedor/cover.jpg
+        alt: "TikTok @fedor.abakumets"
+        featured: true

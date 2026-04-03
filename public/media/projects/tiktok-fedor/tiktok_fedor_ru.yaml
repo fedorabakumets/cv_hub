@@ -8,6 +8,13 @@ stack: [Контент, SMM, TikTok]
 
 blocks:
 
+  - type: image
+    src: /media/projects/tiktok-fedor/cover.jpg
+    alt: "TikTok @fedor.abakumets"
+    featured: true
+
+  - type: divider
+
   - type: text
     title: "О канале"
     body: |
