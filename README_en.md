@@ -26,7 +26,8 @@
 ```bash
 git clone https://github.com/YOUR_ACCOUNT/cv_hub.git
 cd cv_hub
-npm install && npm run dev
+npm install
+npm run dev
 ```
 
 Open `http://localhost:4321`. Edit `src/content/cv/en.yaml`. Push — site deploys automatically.

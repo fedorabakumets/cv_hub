@@ -26,7 +26,8 @@
 ```bash
 git clone https://github.com/YOUR_ACCOUNT/cv_hub.git
 cd cv_hub
-npm install && npm run dev
+npm install
+npm run dev
 ```
 
 Откройте `http://localhost:4321`. Отредактируйте `src/content/cv/en.yaml`. Сделайте push — сайт задеплоится автоматически.
