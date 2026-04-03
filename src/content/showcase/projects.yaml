@@ -226,6 +226,10 @@ projects:
         value: "33K"
       - label: Лайков
         value: "633K"
+    links:
+      - label: Web Archive
+        url: https://web.archive.org/web/*/https://www.tiktok.com/@fedor.abakumets*
+        type: article
     media:
       - type: image
         src: /media/projects/tiktok-fedor/cover.jpg
