@@ -1,10 +1,10 @@
 name: Абакумец Фёдор Александрович
-title: Python-разработчик · Автоматизация · Контент
+title: Разработчик (vibe coding) · Контент · SMM
 
 summary: >
   Разработчик-самоучка из Санкт-Петербурга, 21 год. Начинал с HTML на Blogspot,
-  дошёл до Python, React и TypeScript — всё через практику и собственные проекты.
-  Строю инструменты которые реально работают: автоматизация, Telegram-боты, no-code конструкторы.
+  дошёл до Python, React и TypeScript — всё через практику, собственные проекты и AI-инструменты.
+  Строю инструменты которые реально работают: автоматизация, Telegram-боты, no-code конструкторы — через vibe coding с Kiro, Codex и Qwen.
   Параллельно веду каналы в Telegram и ВКонтакте — философия, политика, мониторинг сервисов.
   Увлекаюсь философией и природой — болота, леса, реки.
 
@@ -22,6 +22,8 @@ contacts:
 
 achievements:
   - Telegram Bot Builder — визуальный no-code конструктор Telegram-ботов с drag-and-drop, генерацией Python-кода (13 звёзд на GitHub)
+  - game-bot — Telegram-бот с играми, переводами и промокодами, 454 теста (pytest), разработан под заказ
+  - fluffy-computing-machine — бот техподдержки для VPN-сервиса с системой тикетов, разработан под заказ
   - ScriptMaster — система автоматизации веб-задач с GUI, Telegram-ботом и распознаванием капчи (17 методов)
   - Sheets Monitor — веб-приложение мониторинга сайтов через Google Sheets, без сервера и бесплатно
   - TikTok @fedor.abakumets — 33K подписчиков, 633K лайков (аккаунт удалён)
@@ -30,7 +32,7 @@ achievements:
 
 skills:
   - group: Языки программирования
-    items: [Python, JavaScript, TypeScript, HTML, CSS]
+    items: [Python, JavaScript]
 
   - group: Frontend
     items: [React, TypeScript, HTML, CSS]
@@ -45,17 +47,17 @@ skills:
     items: [Selenium, OpenCV, PyQt5, EasyOCR, Tesseract, pyTelegramBotAPI, Requests, Pillow, aiogram, Jinja2]
 
   - group: Инструменты
-    items: [Git, GitHub, Google Apps Script, Railway, Excel, Word]
+    items: [Git, GitHub, Google Apps Script, Railway, Excel, Word, Kiro, OpenAI Codex, Qwen]
 
   - group: Направления
-    items: [Автоматизация, Парсинг, Telegram-боты, No-code инструменты, Веб-скрапинг]
+    items: [Автоматизация, Парсинг, Telegram-боты, No-code инструменты, Веб-скрапинг, Vibe coding]
 
   - group: Языки
-    items: [Русский — родной]
+    items: [Русский — родной, Английский — базовый]
 
 experience:
   - company: Telegram Bot Builder (собственный проект)
-    role: Разработчик
+    role: Fullstack-разработчик (vibe coding)
     period: 2024 — настоящее время
     description:
       - Основной текущий проект — визуальный no-code конструктор Telegram-ботов, идейно похожий на n8n, но заточенный под Telegram
@@ -65,24 +67,33 @@ experience:
       - Добавил поддержку медиа, клавиатур, условной логики, JSON-конфигурации, аналитики и деплоя на Railway
     stack: [React, TypeScript, Express.js, Node.js, PostgreSQL, Drizzle, Python, Jinja2, aiogram, JSON]
 
+  - company: Проекты по заказу (фриланс)
+    role: Разработчик Telegram-ботов (vibe coding)
+    period: 2024 — настоящее время
+    description:
+      - game-bot — Telegram-бот с игрой «Мины», кубиком, переводами между пользователями, промокодами и админ-панелью
+      - Полная архитектура с DI (ServiceFactory), SQLite, FSM, middleware — 454 теста (pytest), 100% покрытие handlers
+      - fluffy-computing-machine — бот технической поддержки для VPN-сервиса с системой тикетов, категориями обращений и рейтингом администраторов
+      - Оба проекта разработаны под конкретные задачи заказчиков с нуля
+    stack: [Python, aiogram, SQLite, aiosqlite, Pydantic, pytest, FSM, Dependency Injection]
+
   - company: Личные проекты
-    role: Python-разработчик
+    role: Разработчик (vibe coding)
     period: 2023 — настоящее время
     description:
       - ScriptMaster — система автоматизации с GUI (PyQt5), Telegram-ботом и распознаванием капчи (17 методов)
       - Sheets Monitor — веб-приложение мониторинга сайтов через Google Sheets, работает без сервера
-      - Параллельно веду несколько других проектов в разных направлениях
     stack: [Python, PyQt5, Selenium, OpenCV, EasyOCR, HTML, CSS, JavaScript, Google Sheets API, Google Apps Script]
 
   - company: Социальные сети
-    role: Автор и администратор каналов
+    role: Контент-менеджер / SMM
     period: 2020 — настоящее время
     description:
-      - TikTok @fedor.abakumets — 33K подписчиков, 633K лайков, политический контент (аккаунт удалён)
-      - Telegram «Философская библиотека» (t.me/Philosophical_Library) — 335 подписчиков, книги по философии
+      - TikTok @fedor.abakumets — курировал политический контент, искал материалы в Telegram и других источниках, публиковал фото и видео — 33K подписчиков, 633K лайков (аккаунт удалён)
+      - Telegram «Философская библиотека» (t.me/Philosophical_Library) — искал книги по философии в интернете, редактировал посты через AI, публиковал — 335 подписчиков
       - Telegram политический архив (t.me/pbtc_russ) — 76 подписчиков, упоминания в материалах с сотнями тысяч просмотров
       - ВКонтакте @fedor_invest_channel — 399 подписчиков, мониторинг лотерей, буксов и бирж лайков
-    stack: [Контент, SMM, Telegram, ВКонтакте, TikTok]
+    stack: [Контент, SMM, Telegram, ВКонтакте, TikTok, AI-редактура]
 
 education:
   - institution: СПб ГБ ПОУ «Техникум «Приморский»
