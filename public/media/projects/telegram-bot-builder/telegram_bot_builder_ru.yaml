@@ -9,6 +9,8 @@ stack: [React, TypeScript, Express.js, Node.js, PostgreSQL, Drizzle ORM, Python,
 links:
   - label: GitHub
     url: https://github.com/fedorabakumets/telegram-bot-builder
+  - label: Deploy on Railway
+    url: https://railway.com/deploy/aware-encouragement
 
 blocks:
 

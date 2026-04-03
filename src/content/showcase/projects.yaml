@@ -21,6 +21,9 @@ projects:
       - label: GitHub
         url: https://github.com/fedorabakumets/telegram-bot-builder
         type: repo
+      - label: Deploy on Railway
+        url: https://railway.com/deploy/aware-encouragement
+        type: demo
     media:
       - type: image
         src: /media/projects/telegram-bot-builder/cover.jpg
