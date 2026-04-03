@@ -26,3 +26,31 @@ projects:
         src: /media/projects/telegram-bot-builder/cover.jpg
         alt: "Telegram Bot Builder"
         featured: true
+
+  - slug: sheets-monitor
+    order: 2
+    name: Sheets Monitor
+    role: Разработчик (vibe coding)
+    year: "2024"
+    description: Веб-приложение мониторинга сайтов через Google Sheets. Работает без сервера и бесплатно — данные хранятся прямо в таблице.
+    theme: emerald
+    featured: true
+    platforms: [Web]
+    tags: [javascript, google-sheets, monitoring, no-server, open-source]
+    metrics:
+      - label: Сервер
+        value: "Не нужен"
+      - label: Стоимость
+        value: "Бесплатно"
+      - label: Хранилище
+        value: "Google Sheets"
+    stack: [HTML, CSS, JavaScript, Google Sheets API, Google Apps Script]
+    links:
+      - label: Demo
+        url: https://fedorabakumets.github.io/sheets-monitor/
+        type: demo
+    media:
+      - type: image
+        src: /media/projects/sheets-monitor/cover.jpg
+        alt: "Sheets Monitor"
+        featured: true
