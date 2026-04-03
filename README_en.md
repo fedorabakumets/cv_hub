@@ -1,5 +1,7 @@
 # CV Hub
 
+🌐 **English** | [Русский](README.md)
+
 ![Deploy](https://github.com/KeeGooRoomiE/cv_hub/actions/workflows/deploy.yml/badge.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 ![Astro](https://img.shields.io/badge/built%20with-Astro-ff5d01)
