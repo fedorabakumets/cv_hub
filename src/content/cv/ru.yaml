@@ -1,178 +1,103 @@
-name: Александр Гусаров
-title: Software Engineer — DevOps · Fullstack · GameDev
+name: Абакумец Фёдор Александрович
+title: Python-разработчик · Автоматизация · Контент
 
 summary: >
-  Инженер с 14+ годами опыта в DevOps, fullstack и геймдеве.
-  Управлял инфраструктурой из 750+ серверов, участвовал в продуктах с аудиторией 100M+,
-  строил всё — от CI/CD пайплайнов до мультиплеерных бэкендов.
-  Закрываю полный цикл — архитектура, код, деплой — и мне это реально нравится.
+  Разработчик-самоучка из Санкт-Петербурга, 21 год. Начинал с HTML на Blogspot,
+  дошёл до Python, React и TypeScript — всё через практику и собственные проекты.
+  Строю инструменты которые реально работают: автоматизация, Telegram-боты, no-code конструкторы.
+  Параллельно веду каналы в Telegram и ВКонтакте — философия, политика, мониторинг сервисов.
+  Увлекаюсь философией и природой — болота, леса, реки.
 
 contacts:
-  - label: Email
-    url: mailto:spartan.dgs.121@icloud.com
   - label: GitHub
-    url: https://github.com/KeeGooRoomiE
-  - label: Telegram
-    url: https://t.me/spartan121
-  - label: Upwork
-    url: https://www.upwork.com/freelancers/~01764e57e0646f2fbf
-  - label: LinkedIn
-    url: https://www.linkedin.com/in/alexander-gusarov-4a08911a2/
-  - label: Habr
-    url: https://career.habr.com/xandergusarov
+    url: https://github.com/fedorabakumets
+  - label: Telegram (предпочтительно)
+    url: https://t.me/Xraz_official
+  - label: Личный канал
+    url: https://t.me/sonofbog
+  - label: Email
+    url: mailto:fedor.abakumets@yandex.ru
+  - label: VK
+    url: https://vk.com/fedor.abakumets
 
 achievements:
-  - Обслуживал и автоматизировал инфраструктуру из 750+ Linux-серверов (Selectel VPS и bare metal) с аптаймом 99.9%
-  - Сократил время деплоя с 8 до 2 минут (−75%) и расходы на AWS с $550 до $300/мес
-  - Send Balls — участвовал в разработке игры с 100M+ скачиваний и топом App Store
-  - Bhop Jump — построил мультиплеерный бэкенд, $160K+ выручки в первом квартале
-  - Lana and Ronen — мобильный тайтл с 1M+ скачиваний
-  - Upwork Top Rated Plus — топ 5% фрилансеров, 20+ успешных проектов
+  - Telegram Bot Builder — визуальный no-code конструктор Telegram-ботов с drag-and-drop, генерацией Python-кода (13 звёзд на GitHub)
+  - ScriptMaster — система автоматизации веб-задач с GUI, Telegram-ботом и распознаванием капчи (17 методов)
+  - Sheets Monitor — веб-приложение мониторинга сайтов через Google Sheets, без сервера и бесплатно
+  - TikTok @fedor.abakumets — 33K подписчиков, 633K лайков (аккаунт удалён)
+  - Telegram-канал с политическим архивом — упоминания в материалах с сотнями тысяч просмотров
+  - Ведение тематических каналов и групп в Telegram и ВКонтакте (философия, политика, мониторинг сервисов)
 
 skills:
   - group: Языки программирования
-    items: [Go, C#, JavaScript, TypeScript, Dart, Swift, Java, GML]
-
-  - group: Backend и API
-    items: [Node.js, REST API, WebSockets, микросервисы, EF Core]
+    items: [Python, JavaScript, TypeScript, HTML, CSS]
 
   - group: Frontend
-    items: [React, Angular, HTML, CSS, Tailwind]
+    items: [React, TypeScript, HTML, CSS]
 
-  - group: DevOps и инфраструктура
-    items: [Kubernetes, Helm, Docker, Terraform, Ansible, GitLab CI, GitHub Actions, Jenkins]
-
-  - group: Облака
-    items: [AWS — EC2, S3, RDS, VPC, IAM, ALB, Yandex Cloud, Selectel]
-
-  - group: Observability
-    items: [Prometheus, VictoriaMetrics, Grafana, Loki, Alertmanager, CloudWatch]
+  - group: Backend
+    items: [Express.js, Node.js, REST API, WebSocket]
 
   - group: Базы данных
-    items: [PostgreSQL, ClickHouse, MySQL, MongoDB, Redis, RabbitMQ]
+    items: [PostgreSQL, Drizzle ORM, Google Sheets API]
 
-  - group: Геймдев
-    items: [Unity, GameMaker, мультиплеер, монетизация, игровой дизайн]
+  - group: Python / автоматизация
+    items: [Selenium, OpenCV, PyQt5, EasyOCR, Tesseract, pyTelegramBotAPI, Requests, Pillow, aiogram, Jinja2]
 
-  - group: Платформы
-    items: [Linux, Web, iOS, Android, macOS]
+  - group: Инструменты
+    items: [Git, GitHub, Google Apps Script, Railway, Excel, Word]
+
+  - group: Направления
+    items: [Автоматизация, Парсинг, Telegram-боты, No-code инструменты, Веб-скрапинг]
 
   - group: Языки
-    items: [Русский — родной, Английский — IELTS 7.0 (B2)]
+    items: [Русский — родной]
 
 experience:
-
-  - company: InfoScale
-    role: DevOps-инженер / Software Engineer
-    period: Дек 2024 — Янв 2026
+  - company: Telegram Bot Builder (собственный проект)
+    role: Разработчик
+    period: 2024 — настоящее время
     description:
-      - Мониторинг и обслуживание 750+ Linux-серверов (Selectel VPS и bare metal)
-        — сетевые интерфейсы, порты, управление доступами, реагирование на инциденты
-      - Управление Kubernetes-кластерами в Yandex Cloud и self-hosted
-        (GitLab, Matrix, Keycloak, Vault); написание и поддержка Helm-чартов
-      - Построил Terraform-инфраструктуру для ~20 AWS-сервисов ($550 → $300/мес);
-        писал собственные модули, развернул ClickHouse; Ansible для конфигурации инстансов
-      - Оптимизировал CI/CD в нескольких репозиториях (GitHub Actions + GitLab CI);
-        единая структура пайплайнов сократила время деплоя с 8 до 2 минут
-      - Построил observability-стек с нуля — пробы VictoriaMetrics, алертинг Prometheus,
-        кастомные дашборды Grafana; Alertmanager с доставкой в Telegram и Matrix
-      - Спроектировал и разработал SaaS-сервис мониторинга полного цикла (Go + Gin/GORM + React)
-        — проверки ping, домена, SSL с интервалами от 10 сек до 24 часов; задеплоен в кластере Kubernetes
-      - Реагировал на SSH brute-force атаки через KVM live-доступ,
-        блокировку портов, ротацию пользователей и настройку таймаутов
-      - Вырастил команду инфраструктуры с 3 до 6 человек; менторил 3 джуниоров
-    stack: [Kubernetes, Helm, Docker, Terraform, Ansible, AWS, Yandex Cloud, GitLab CI, GitHub Actions, Go, React, PostgreSQL, ClickHouse, VictoriaMetrics, Grafana]
+      - Основной текущий проект — визуальный no-code конструктор Telegram-ботов, идейно похожий на n8n, но заточенный под Telegram
+      - Пользователь перетаскивает узлы на холст, TypeScript + Jinja2 генерируют готовый Python-код (aiogram)
+      - Код можно скопировать или запустить бота прямо в браузере во вкладке — без локальной установки
+      - Построил полный стек — React + TypeScript фронтенд, Express.js бэкенд, PostgreSQL + Drizzle ORM
+      - Добавил поддержку медиа, клавиатур, условной логики, JSON-конфигурации, аналитики и деплоя на Railway
+    stack: [React, TypeScript, Express.js, Node.js, PostgreSQL, Drizzle, Python, Jinja2, aiogram, JSON]
 
-  - company: SOFTINTERMOB
-    role: Unity-разработчик
-    period: Ноя 2023 — Июл 2024
+  - company: Личные проекты
+    role: Python-разработчик
+    period: 2023 — настоящее время
     description:
-      - Разработал два мобильных приложения от Figma до релиза в App Store — полный цикл
-      - Интегрировал Firebase и сторонние SDK, решал проблемы совместимости iOS/Android
-      - Рефакторил legacy-кодовую базу, улучшил стабильность и производительность
-    stack: [Unity, C#, Firebase, iOS, Android]
+      - ScriptMaster — система автоматизации с GUI (PyQt5), Telegram-ботом и распознаванием капчи (17 методов)
+      - Sheets Monitor — веб-приложение мониторинга сайтов через Google Sheets, работает без сервера
+      - Параллельно веду несколько других проектов в разных направлениях
+    stack: [Python, PyQt5, Selenium, OpenCV, EasyOCR, HTML, CSS, JavaScript, Google Sheets API, Google Apps Script]
 
-  - company: AZNResearch
-    role: Fullstack-разработчик
-    period: Июл 2022 — Окт 2023
+  - company: Социальные сети
+    role: Автор и администратор каналов
+    period: 2020 — настоящее время
     description:
-      - Проектировал фронтенд-архитектуру внутренних продуктов для госсектора и enterprise (Angular + Tailwind)
-      - Разрабатывал бэкенд-микросервисы на .NET Core + EF Core, REST API и LINQ-запросы
-      - Внедрил Git-воркфлоу, код-ревью и CI-пайплайны, повысил продуктивность команды на 25%
-    stack: [Angular, Tailwind, C#, .NET Core, SQL Server, MySQL]
-
-  - company: Neosight
-    role: Гейм-дизайнер
-    period: Ноя 2021 — Фев 2022
-    description:
-      - Написал GDD для 6 мобильных игр — механики, монетизация, прогрессия
-      - Проводил эксперименты по валидации концептов, вырастил установки в 30 раз, CTR с 0.4% до 5%
-      - Балансировал уровни и кривые сложности по метрикам retention и drop-off
-    stack: [Unity, Game Design, Analytics]
-
-  - company: Udemy
-    role: Unity-разработчик
-    period: Мар 2021 — Окт 2021
-    description:
-      - Разработал приложение для изучения немецкого с нуля — 22 категории, ~3000 карточек
-      - Оптимизировал архитектуру и хранение данных, уменьшил размер с ~3GB до 400MB
-    stack: [Unity, C#, JSON, iOS, Android]
-
-  - company: Popside Games
-    role: Левел-дизайнер
-    period: Июл 2020 — Окт 2020
-    description:
-      - Спроектировал и сбалансировал 3000+ уровней для Match-3 и Solitaire в сжатые сроки
-      - Улучшил completion rate уровней на 15% через итеративное тестирование
-    stack: [Game Design, Level Design]
-
-  - company: SayGames
-    role: Гейм-дизайнер
-    period: Фев 2020 — Июн 2020
-    description:
-      - Проектировал механики и уровни для hyper-casual прототипов
-      - Участвовал в разработке Send Balls (100M+ скачиваний) и FlowerKing
-      - Улучшил D1-retention на 10% через итерации по метрикам
-    stack: [Game Design, Unity]
-
-  - company: Goodline
-    role: Software Engineer
-    period: Ноя 2019 — Янв 2020
-    description:
-      - Разрабатывал и адаптировал внутренние React-интерфейсы для мобильных устройств
-      - Улучшил производительность на 25% через оптимизацию компонентов
-    stack: [React, JavaScript]
-
-  - company: Project Tech
-    role: Software Engineer / Сооснователь
-    period: Фев 2017 — Окт 2019
-    description:
-      - Основал студию разработки — нанимал разработчиков, вёл переговоры с клиентами, заключал контракты
-      - Выступал вторым инженером и техлидом — от архитектурных решений до продакшн-кода
-      - Выпустил 10+ продуктов — игры, мобильные приложения и бизнес-ПО для ресторанов, доставки и VR
-      - Построил мультиплеерный бэкенд для Bhop Jump вдвоём — P2P + выделенные серверы до 16 игроков, $160K выручки в Q1
-      - Питчил паблишинг-сделки инди-разработчикам — ранний опыт в продукте и бизнес-развитии
-    stack: [Unity, C#, React, React Native, Xamarin, Node.js, WebSockets, Docker, VR]
+      - TikTok @fedor.abakumets — 33K подписчиков, 633K лайков, политический контент (аккаунт удалён)
+      - Telegram «Философская библиотека» (t.me/Philosophical_Library) — 335 подписчиков, книги по философии
+      - Telegram политический архив (t.me/pbtc_russ) — 76 подписчиков, упоминания в материалах с сотнями тысяч просмотров
+      - ВКонтакте @fedor_invest_channel — 399 подписчиков, мониторинг лотерей, буксов и бирж лайков
+    stack: [Контент, SMM, Telegram, ВКонтакте, TikTok]
 
 education:
-  - institution: Udemy
-    degree: Linux Foundation Computer Science
-    period: "2025"
+  - institution: СПб ГБ ПОУ «Техникум «Приморский»
+    degree: Мастер по обработке цифровой информации
+    period: "2022 — 2025"
+    description: Microsoft Office — Excel, Word, работа с цифровой информацией
 
-  - institution: Udemy
-    degree: Certified Kubernetes Administrator
-    period: "2025"
+  - institution: Средняя общеобразовательная школа, Санкт-Петербург
+    degree: Основное общее образование (10 классов)
+    period: "2012 — 2022"
 
-  - institution: Wargaming Forge
-    degree: Level Designer & Balancing
-    period: "2020"
-
-  - institution: Siberian Polytechnic University / Сибирский политехнический университет
-    degree: Faculty of Information Technology / Факультет информационных технологий
-    period: 2017–2018
+  - institution: Самообразование
+    degree: Python, автоматизация, веб-разработка
+    period: "2023 — н.в."
 
 languages:
   - language: Русский
     level: Родной
-  - language: Английский
-    level: IELTS 7.0 (B2)
