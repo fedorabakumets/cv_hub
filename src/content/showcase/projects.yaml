@@ -194,6 +194,11 @@ projects:
       - label: VK
         url: https://vk.com/fedor_invest_channel
         type: demo
+    media:
+      - type: image
+        src: /media/projects/fedor-invest-channel/cover.jpg
+        alt: "FEDOR INVEST CHANNEL"
+        featured: true
 
   - slug: tiktok-fedor
     order: 9

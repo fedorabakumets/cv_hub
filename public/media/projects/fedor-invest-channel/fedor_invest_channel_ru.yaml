@@ -12,6 +12,13 @@ links:
 
 blocks:
 
+  - type: image
+    src: /media/projects/fedor-invest-channel/cover.jpg
+    alt: "FEDOR INVEST CHANNEL"
+    featured: true
+
+  - type: divider
+
   - type: text
     title: "О канале"
     body: |
