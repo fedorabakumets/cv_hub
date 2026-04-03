@@ -177,10 +177,10 @@ projects:
 
   - slug: fedor-invest-channel
     order: 8
-    name: VK — мониторинг сервисов
+    name: FEDOR INVEST CHANNEL
     role: Контент-менеджер / SMM
     year: "2021"
-    description: ВКонтакте канал с мониторингом лотерей, буксов и бирж лайков.
+    description: ВКонтакте канал с мониторингом сайтов для заработка — буксы, быстрые лотереи, социальные биржи, форумы.
     theme: blue
     featured: false
     platforms: [VKontakte]
@@ -189,7 +189,7 @@ projects:
       - label: Подписчиков
         value: "399"
       - label: Тематика
-        value: "Буксы, лотереи"
+        value: "Буксы, лотереи, биржи"
     links:
       - label: VK
         url: https://vk.com/fedor_invest_channel
