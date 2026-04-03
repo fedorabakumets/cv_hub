@@ -179,6 +179,11 @@ projects:
       - label: Telegram
         url: https://t.me/pbtc_russ
         type: demo
+    media:
+      - type: image
+        src: /media/projects/pbtc-russ/cover.jpg
+        alt: "Политика закулисья"
+        featured: true
 
   - slug: fedor-invest-channel
     order: 8

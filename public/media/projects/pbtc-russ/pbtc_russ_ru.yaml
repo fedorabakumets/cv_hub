@@ -12,6 +12,13 @@ links:
 
 blocks:
 
+  - type: image
+    src: /media/projects/pbtc-russ/cover.jpg
+    alt: "Политика закулисья"
+    featured: true
+
+  - type: divider
+
   - type: text
     title: "О канале"
     body: |
