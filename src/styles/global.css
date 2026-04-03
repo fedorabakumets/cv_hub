@@ -808,8 +808,9 @@ a:hover { text-decoration: underline; }
   border-radius: 14px;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,0.10);
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 4 / 3;
   max-height: 360px;
+  will-change: transform;
 }
 
 .media__el {
@@ -817,7 +818,13 @@ a:hover { text-decoration: underline; }
   height: 100%;
   max-height: 360px;
   display: block;
-  object-fit: contain;
+  object-fit: cover;
+  animation: media-fadein 0.3s ease;
+}
+
+@keyframes media-fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 .thumbs {
@@ -951,6 +958,7 @@ a:hover { text-decoration: underline; }
 @media (prefers-reduced-motion: reduce) {
   * {
     transition: none !important;
+    animation: none !important;
     scroll-behavior: auto !important;
   }
 }
