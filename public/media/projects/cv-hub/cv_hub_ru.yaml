@@ -1,0 +1,68 @@
+title: "CV Hub"
+role: "Fullstack-разработчик (vibe coding)"
+year: "2026"
+tagline: "Резюме как код. YAML как единый источник правды."
+
+platforms: [Web, GitHub Pages]
+stack: [Astro, TypeScript, YAML, GitHub Actions, CSS]
+
+links:
+  - label: GitHub
+    url: https://github.com/fedorabakumets/cv_hub
+  - label: Live Demo
+    url: https://fedorabakumets.github.io/cv_hub/
+
+blocks:
+
+  - type: image
+    src: /media/projects/cv-hub/cover.png
+    alt: "CV Hub главная страница"
+    featured: true
+
+  - type: divider
+
+  - type: text
+    title: "Обзор"
+    body: |
+      CV Hub — не шаблон резюме. Это система.
+
+      Форк оригинального проекта KeeGooRoomiE, кастомизированный под себя:
+      заменены все данные, добавлены новые роли (боты, fullstack, SMM),
+      добавлены проекты в showcase, настроен деплой на GitHub Pages.
+
+      Одна правка в YAML — и обновляется сайт, PDF, DOCX и TXT одновременно.
+
+  - type: divider
+
+  - type: text
+    title: "Что кастомизировал"
+    bullets:
+      - Заменил все данные Гусарова на свои (CV, контакты, опыт)
+      - Добавил специализированные профили — боты, fullstack, SMM
+      - Добавил 9 проектов в showcase с детальными страницами
+      - Настроил GitHub Pages деплой через gh CLI
+      - Обновил роли в дропдауне
+
+  - type: divider
+
+  - type: text
+    title: "Как работает"
+    body: |
+      Данные хранятся в YAML файлах — по одному на каждый профиль и язык.
+
+      При пуше в main запускается GitHub Actions:
+      собирает Astro сайт, генерирует PDF/DOCX/TXT через Playwright и docx.js,
+      деплоит на GitHub Pages.
+
+      Никакого сервера. Всё статично и воспроизводимо.
+
+  - type: divider
+
+  - type: text
+    title: "Результат"
+    bullets:
+      - Живой сайт-резюме на GitHub Pages
+      - Автоматическая генерация PDF, DOCX, TXT
+      - Мультиязычность (RU + EN)
+      - Специализированные профили по ролям
+      - Open source — можно форкнуть

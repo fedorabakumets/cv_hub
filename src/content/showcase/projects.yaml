@@ -1,4 +1,35 @@
 projects:
+  - slug: cv-hub
+    order: 1
+    name: CV Hub
+    role: Fullstack-разработчик (vibe coding)
+    year: "2026"
+    description: Резюме как код. YAML-driven платформа для CV с автодеплоем, мультиязычностью и специализированными профилями. Форк оригинального проекта, кастомизированный под себя.
+    theme: blue
+    featured: true
+    platforms: [Web, GitHub Pages]
+    tags: [astro, yaml, typescript, github-actions, open-source]
+    metrics:
+      - label: Деплой
+        value: "GitHub Pages"
+      - label: Форматы
+        value: "PDF, DOCX, TXT"
+      - label: Вы здесь
+        value: "Live"
+    stack: [Astro, TypeScript, YAML, GitHub Actions, CSS]
+    links:
+      - label: GitHub
+        url: https://github.com/fedorabakumets/cv_hub
+        type: repo
+      - label: Live Demo
+        url: https://fedorabakumets.github.io/cv_hub/
+        type: demo
+    media:
+      - type: image
+        src: /media/projects/cv-hub/cover.png
+        alt: "CV Hub"
+        featured: true
+
   - slug: telegram-bot-builder
     order: 1
     name: Telegram Bot Builder
